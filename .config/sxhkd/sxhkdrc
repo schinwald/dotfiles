@@ -1,0 +1,69 @@
+#; Search for [H]elpful Shortcuts
+Super_L; space; h
+	MONITOR=$(xrandr | awk '/ primary / {print $1}')
+	cat ~/.config/sxhkd/docs/shortcuts | rofi -dmenu -m $MONITOR
+
+#; Search for [A]pplications
+Super_L; space; a
+	MONITOR=$(xrandr | awk '/ primary / {print $1}'); \
+	rofi -show drun -m $MONITOR
+
+#; Search for [W]indows
+Super_L; space; w
+	MONITOR=$(xrandr | awk '/ primary / {print $1}')
+	rofi -show window -m $MONITOR
+
+#; Print to Screen
+Print
+	flameshot gui
+
+#; Navigate to [I] Workspace
+Super_L; i; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={11,12,13,14,15,16,17,18,19,20}; \
+	i3-msg workspace number $WORKSPACE
+
+#; Navigate to [O] Workspace
+Super_L; o; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,10}; \
+	i3-msg workspace number $\{WORKSPACE\}
+
+#; Navigate to [P] Workspace
+Super_L; p; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={21,22,23,24,25,26,27,28,29,30}; \
+	i3-msg workspace number $WORKSPACE
+
+#; [M]ove Container to [I] Workspace
+Super_L; m; i; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={11,12,13,14,15,16,17,18,19,20}; \
+	i3-msg move container to workspace number $WORKSPACE, workspace number $WORKSPACE
+
+#; [M]ove Container to [O] Workspace
+Super_L; m; o; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,10}; \
+	i3-msg move container to workspace number $WORKSPACE, workspace number $WORKSPACE
+
+#; [M]ove Container to [P] Workspace
+Super_L; m; p; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={21,22,23,24,25,26,27,28,29,30}; \
+	i3-msg move container to workspace number $WORKSPACE, workspace number $WORKSPACE
+
+#; Change [L]ayout to [D]ivided
+Super_L; l; d
+	i3-msg layout toggle split 
+
+#; Change [L]ayout to [T]abbed
+Super_L; l; t
+	i3-msg layout tabbed
+
+#; Change [L]ayout to [S]tacked
+Super_L; l; s
+	i3-msg layout stacking
+
+#; Change [L]ayout to [F]loat
+Super_L; l; f
+	i3-msg floating toggle
+
+#; [R]emove [C]ontainer
+Super_L; r; c
+	i3-msg kill
+

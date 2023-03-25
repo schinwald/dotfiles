@@ -1,0 +1,94 @@
+format = """
+$username\
+$hostname\
+$docker_context\
+$rust\
+$nodejs\
+$fill\
+$cmd_duration $jobs $time\
+$line_break\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$character\
+"""
+
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+[username]
+format = '[$user]($style)'
+style_user = 'bold white'
+style_root = 'bold red'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = ' [$hostname]($style)[$ssh_symbol]($style) '
+disabled = false
+
+[localip]
+ssh_only = false
+format = '@[$localipv4](bold red) '
+disabled = false
+
+[fill]
+symbol = " "
+
+[directory]
+format = "📁 [$path]($style)[$read_only]($read_only_style) "
+style = "blue"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = false
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "cyan"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[git_metrics]
+disabled = false
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+
+[memory_usage]
+symbol = " "
+
+[time]
+disabled = false
+style = "bold white"
+format = "[$time]($style)"
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+[rust]
+symbol = " "
+
+[nodejs]
+format = "[$symbol($version )]($style)"

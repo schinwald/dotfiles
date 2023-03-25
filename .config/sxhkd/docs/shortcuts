@@ -1,0 +1,15 @@
+Search for [H]elpful Shortcuts---Super_L; space; h
+Search for [A]pplications---Super_L; space; a
+Search for [W]indows---Super_L; space; w
+Print to Screen---Print
+Navigate to [I] Workspace---Super_L; i; {1,2,3,4,5,6,7,8,9,0}
+Navigate to [O] Workspace---Super_L; o; {1,2,3,4,5,6,7,8,9,0}
+Navigate to [P] Workspace---Super_L; p; {1,2,3,4,5,6,7,8,9,0}
+[M]ove Container to [I] Workspace---Super_L; m; i; {1,2,3,4,5,6,7,8,9,0}
+[M]ove Container to [O] Workspace---Super_L; m; o; {1,2,3,4,5,6,7,8,9,0}
+[M]ove Container to [P] Workspace---Super_L; m; p; {1,2,3,4,5,6,7,8,9,0}
+Change [L]ayout to [D]ivided---Super_L; l; d
+Change [L]ayout to [T]abbed---Super_L; l; t
+Change [L]ayout to [S]tacked---Super_L; l; s
+Change [L]ayout to [F]loat---Super_L; l; f
+[R]emove [C]ontainer---Super_L; r; c
