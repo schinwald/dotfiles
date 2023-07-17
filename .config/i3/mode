@@ -1,0 +1,4 @@
+# Set client window color themes
+client.focused          #aa3311 #4c7899 #285577 #ffffff #ffffff
+client.unfocused        #333333 #222222 #888888 #292d2e #333333
+

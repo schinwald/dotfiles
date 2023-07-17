@@ -1,0 +1,23 @@
+#; Print to Screen
+Print
+	flameshot gui
+
+#; Search for [H]elpful Shortcuts
+Alt_L; space; h
+	MONITOR=$(xrandr | awk '/ primary / {print $1}'); \
+	cat ~/.config/sxhkd/docs/shortcuts | rofi -dmenu -m $MONITOR
+
+#; Search for [A]pplications
+Alt_L; space; a
+	MONITOR=$(xrandr | awk '/ primary / {print $1}'); \
+	rofi -show drun -m $MONITOR
+
+#; Search for [W]indows
+Alt_L; space; w
+	MONITOR=$(xrandr | awk '/ primary / {print $1}') \
+	rofi -show window -m $MONITOR
+
+#; [Q]uit Container
+Alt_L; q
+	i3-msg kill
+

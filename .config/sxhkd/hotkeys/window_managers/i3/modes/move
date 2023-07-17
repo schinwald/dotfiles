@@ -1,0 +1,39 @@
+#; [M]ove Container to [I] Workspace
+i; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg move container to workspace $WORKSPACE: I-$WORKSPACE, workspace $WORKSPACE: I-$WORKSPACE
+
+#; [M]ove Container to [O] Workspace
+o; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg move container to workspace 1$WORKSPACE: O-$WORKSPACE, workspace 1$WORKSPACE: O-$WORKSPACE
+
+#; [M]ove Container to [P] Workspace
+p; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg move container to workspace 2$WORKSPACE: P-$WORKSPACE, workspace 2$WORKSPACE: P-$WORKSPACE
+
+#; Change Layout to [D]ivided
+d
+	i3-msg layout toggle split 
+
+#; Change Layout to [T]abbed
+t
+	i3-msg layout tabbed
+
+#; Change Layout to [S]tacked
+s
+	i3-msg layout stacking
+
+#; Change Layout to [F]loat
+f
+	i3-msg floating toggle
+
+#; Navigate Around Containers
+{h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+#; Focus Container
+{Return,Escape}
+	~/.config/sxhkd/launch.sh mode focus
+

@@ -1,0 +1,18 @@
+xmodmap ~/.xmodmap-spruce &
+
+kitty &
+kitty &
+kitty &
+kitty &
+postman &
+mongodb-compass &
+
+firefox --new-window https://chat.openai.com &
+firefox --new-window &
+code &
+
+~/Applications/Bitwarden.AppImage &
+thunderbird &
+slack &
+spotify &
+

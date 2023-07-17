@@ -1,0 +1,22 @@
+#; Switch to [F]ocus Mode
+Alt_L; f
+	~/.config/sxhkd/launch.sh mode focus
+
+#; Switch to [M]ove Mode
+Alt_L; m
+	~/.config/sxhkd/launch.sh mode move
+
+#; Switch to [N]avigate Mode
+Alt_L; n
+	~/.config/sxhkd/launch.sh mode navigate
+
+#; Switch to [R]esize Mode
+Alt_L; r
+	~/.config/sxhkd/launch.sh mode resize
+
+#; Switch to [T]rade Mode
+Alt_L; t
+	~/.config/sxhkd/launch.sh mode trade; \
+	i3-msg 'unmark trader'; \
+	i3-msg 'mark trader'
+

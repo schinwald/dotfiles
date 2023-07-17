@@ -1,0 +1,58 @@
+#; Navigate to [I] Workspace
+i; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg workspace number $WORKSPACE: I-$WORKSPACE
+
+#; Navigate to [O] Workspace
+o; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg workspace number 1$WORKSPACE: O-$WORKSPACE
+
+#; Navigate to [P] Workspace
+p; {1,2,3,4,5,6,7,8,9,0}
+	WORKSPACE={1,2,3,4,5,6,7,8,9,0}; \
+	i3-msg workspace number 2$WORKSPACE: P-$WORKSPACE
+
+#; Select [A]dult Container
+a
+	i3-msg focus parent
+
+#; Select [C]hild Container
+c
+	i3-msg focus child
+
+#; [E]xtend Container Left
+Alt_L; e; h
+	i3-msg split horizontal; \
+	rofi -show drun; \
+
+#; [E]xtend Container Down
+Alt_L; e; j
+	i3-msg split vertical; \
+	rofi -show drun; \
+	i3-msg move down
+
+#; [E]xtend Container Up
+Alt_L; e; k
+	i3-msg split vertical; \
+	rofi -show drun; \
+	i3-msg move up
+
+#; [E]xtend Container Right
+Alt_L; e; l
+	i3-msg split horizontal; \
+	rofi -show drun; \
+	i3-msg move right
+
+#; [C]ontainer [S]plit [H]orizontally
+Alt_L; c; s; h
+	i3-msg split horizontal
+
+#; Navigate Around Containers
+{h,j,k,l}
+	i3-msg focus {left,down,up,right}
+
+#; Focus Container
+{Return,Escape}
+	~/.config/sxhkd/launch.sh mode focus
+

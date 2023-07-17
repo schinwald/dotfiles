@@ -5,6 +5,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+include ~/.config/i3/mode
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -13,7 +15,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font FiraCode Nerd Font Regular 8
+font pango:FiraCode Nerd Font Regular 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -53,105 +55,6 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id rofi -show combi
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+Ctrl+h split h
-
-# split in vertical orientation
-bindsym $mod+Ctrl+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+Backspace floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+Backspace focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-# switch to workspace
-# bindsym $mod+1 workspace number $ws1
-# bindsym $mod+2 workspace number $ws2
-# bindsym $mod+3 workspace number $ws3
-# bindsym $mod+4 workspace number $ws4
-# bindsym $mod+5 workspace number $ws5
-# bindsym $mod+6 workspace number $ws6
-# bindsym $mod+7 workspace number $ws7
-# bindsym $mod+8 workspace number $ws8
-# bindsym $mod+9 workspace number $ws9
-# bindsym $mod+0 workspace number $ws10
-
-# Move workspaces around
-bindsym $mod+Ctrl+greater move workspace to output right
-bindsym $mod+Ctrl+less move workspace to output left
-
-# move focused container to workspace
-# bindsym $mod+Shift+1 move container to workspace number $ws1
-# bindsym $mod+Shift+2 move container to workspace number $ws2
-# bindsym $mod+Shift+3 move container to workspace number $ws3
-# bindsym $mod+Shift+3 move container to workspace number $ws4
-# bindsym $mod+Shift+5 move container to workspace number $ws5
-# bindsym $mod+Shift+6 move container to workspace number $ws6
-# bindsym $mod+Shift+7 move container to workspace number $ws7
-# bindsym $mod+Shift+8 move container to workspace number $ws8
-# bindsym $mod+Shift+9 move container to workspace number $ws9
-# bindsym $mod+Shift+0 move container to workspace number $ws10
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -159,46 +62,55 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
 # Remove window title bars
-default_border pixel 1
-default_floating_border pixel 1
-
-# Set client window color themes
-client.focused          #aa3311 #4c7899 #285577 #ffffff #ffb52a
-client.unfocused        #333333 #222222 #888888 #292d2e #333333
+default_border pixel 3
+default_floating_border pixel 3
 
 # Add gaps
-gaps inner 20
+gaps inner 40
 
-# Setup background
-exec --no-startup-id sh ~/.fehbg &
+# Reset containers
+exec --no-startup-id i3-msg '[class=".*"] move container to workspace 100'
+
+# Handle class workspace assignments
+# for_window [class=""] move container to workspace number 0: I-0
+for_window [class="kitty"] move container to workspace number 1: I-1
+# for_window [class=""] move container to workspace number 2: I-2
+# for_window [class=""] move container to workspace number 3: I-3
+for_window [class="Postman"] move container to workspace number 4: I-4
+for_window [class="MongoDB Compass"] move container to workspace number 5: I-5
+# for_window [class=""] move container to workspace number 6: I-6
+# for_window [class=""] move container to workspace number 7: I-7
+# for_window [class=""] move container to workspace number 8: I-8
+# for_window [class=""] move container to workspace number 9: I-9
+
+# for_window [class=""] move container to workspace number 10: O-0
+for_window [class="firefox" title="New chat"] move container to workspace number 11: O-1
+for_window [class="firefox"] move container to workspace number 12: O-2
+for_window [class="Code"] move container to workspace number 13: O-3
+for_window [class="jetbrains-idea"] move container to workspace number 14: O-4
+# for_window [class=""] move container to workspace number 15: O-5
+# for_window [class=""] move container to workspace number 16: O-6
+# for_window [class=""] move container to workspace number 17: O-7
+# for_window [class=""] move container to workspace number 18: O-8
+# for_window [class=""] move container to workspace number 19: O-9
+
+# for_window [class=""] move container to workspace number 20: P-0
+for_window [class="Bitwarden"] move container to workspace number 21: P-1
+for_window [class="thunderbird"] move container to workspace number 22: P-2
+for_window [class="Slack"] move container to workspace number 23: P-3
+# for_window [class=""] move container to workspace number 24: P-4
+for_window [class="Spotify"] move container to workspace number 25: P-5
+# for_window [class=""] move container to workspace number 23: P-6
+# for_window [class=""] move container to workspace number 27: P-7
+# for_window [class=""] move container to workspace number 28: P-8
+# for_window [class=""] move container to workspace number 29: P-9
+
+# Go to workspace O-1
+exec --no-startup-id i3-msg 'workspace number 11: O-1'
+
+# Setup redshift
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf &
 
 # Start picom
 exec --no-startup-id picom -b
@@ -206,11 +118,8 @@ exec --no-startup-id picom -b
 # Start dunst
 exec --no-startup-id dunst --config=~/.config/dunst/dunstrc &
 
-# Start xmodmap
-exec --no-startup-id xmodmap ~/.xmodmap-spruce
-
 # Start sxhkd
-exec_always --no-startup-id ~/.config/sxhkd/launch.sh &
+exec_always --no-startup-id ~/.config/sxhkd/launch.sh mode navigate &
 
 # Start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &

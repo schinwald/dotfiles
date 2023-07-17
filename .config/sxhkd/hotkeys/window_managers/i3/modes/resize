@@ -1,0 +1,19 @@
+#; Shrink Width Container
+h
+	i3-msg 'resize shrink width 10 px or 10 ppt'
+
+#; Shrink Height Container
+j
+	i3-msg 'resize shrink height 10 px or 10 ppt'
+
+#; Grow Height Container
+k
+	i3-msg 'resize grow height 10 px or 10 ppt'
+
+#; Grow Width Container
+l
+	i3-msg 'resize grow width 10 px or 10 ppt'
+
+#; Focus Container
+Return
+	~/.config/sxhkd/launch.sh mode focus
