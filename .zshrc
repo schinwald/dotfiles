@@ -121,6 +121,7 @@ source /usr/local/bin/z.sh
 # Setup fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/doc/fzf/examples/key-bindings.zsh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # Setup starship
 eval "$(starship init zsh)"

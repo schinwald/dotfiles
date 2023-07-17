@@ -128,3 +128,5 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
