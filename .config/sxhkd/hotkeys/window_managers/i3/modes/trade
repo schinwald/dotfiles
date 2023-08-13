@@ -3,7 +3,7 @@
 	i3-msg 'focus {left,down,up,right}'
 
 #; [S]end Trade
-s
+{s,Return}
 	i3-msg 'swap container with mark trader'; \
 	i3-msg '[con_mark="^trader$"] focus'; \
 	~/.config/sxhkd/launch.sh mode focus

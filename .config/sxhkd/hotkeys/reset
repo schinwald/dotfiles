@@ -1,20 +1,179 @@
 Alt_L; Super_L; r
 	i3 restart
 
-{grave,1,2,3,4,5,6,7,8,9,minus,equal,BackSpace}; grave; Right
+grave; grave
 	echo "DO NOTHING"
 
-{Tab,q,w,e,r,t,y,u,i,o,p,bracketleft,bracketright,backslash}; grave; Right
+1; grave
 	echo "DO NOTHING"
 
-{Caps_Lock,a,s,d,f,g,h,j,k,l,semicolon,apostrophe,Return}; grave; Right
+2; grave
 	echo "DO NOTHING"
 
-{Shift_L,z,x,c,v,b,n,m,comma,period,slash,Shift_R}; grave; Right
+3; grave
 	echo "DO NOTHING"
 
-{Control_L,Super_L,space,Alt_R,Control_R}; grave; Right
+4; grave
 	echo "DO NOTHING"
 
-{Left,Down,Up,Right}; grave; Right
+5; grave
+	echo "DO NOTHING"
+
+6; grave
+	echo "DO NOTHING"
+
+7; grave
+	echo "DO NOTHING"
+
+8; grave
+	echo "DO NOTHING"
+
+9; grave
+	echo "DO NOTHING"
+
+0; grave
+	echo "DO NOTHING"
+
+minus; grave
+	echo "DO NOTHING"
+
+equal; grave
+	echo "DO NOTHING"
+
+BackSpace; grave
+	echo "DO NOTHING"
+
+Tab; grave
+	echo "DO NOTHING"
+
+q; grave
+	echo "DO NOTHING"
+
+w; grave
+	echo "DO NOTHING"
+
+e; grave
+	echo "DO NOTHING"
+
+r; grave
+	echo "DO NOTHING"
+
+t; grave
+	echo "DO NOTHING"
+
+y; grave
+	echo "DO NOTHING"
+
+u; grave
+	echo "DO NOTHING"
+
+i; grave
+	echo "DO NOTHING"
+
+o; grave
+	echo "DO NOTHING"
+
+p; grave
+	echo "DO NOTHING"
+
+bracketleft; grave
+	echo "DO NOTHING"
+
+bracketright; grave
+	echo "DO NOTHING"
+
+backslash; grave
+	echo "DO NOTHING"
+
+Caps_Lock; grave
+	echo "DO NOTHING"
+
+a; grave
+	echo "DO NOTHING"
+
+s; grave
+	echo "DO NOTHING"
+
+d; grave
+	echo "DO NOTHING"
+
+f; grave
+	echo "DO NOTHING"
+
+g; grave
+	echo "DO NOTHING"
+
+h; grave
+	echo "DO NOTHING"
+
+j; grave
+	echo "DO NOTHING"
+
+k; grave
+	echo "DO NOTHING"
+
+l; grave
+	echo "DO NOTHING"
+
+semicolon; grave
+	echo "DO NOTHING"
+
+apostrophe; grave
+	echo "DO NOTHING"
+
+Return; grave
+	echo "DO NOTHING"
+
+Shift_L; grave
+	echo "DO NOTHING"
+
+z; grave
+	echo "DO NOTHING"
+
+x; grave
+	echo "DO NOTHING"
+
+c; grave
+	echo "DO NOTHING"
+
+v; grave
+	echo "DO NOTHING"
+
+b; grave
+	echo "DO NOTHING"
+
+n; grave
+	echo "DO NOTHING"
+
+m; grave
+	echo "DO NOTHING"
+
+comma; grave
+	echo "DO NOTHING"
+
+period; grave
+	echo "DO NOTHING"
+
+slash; grave
+	echo "DO NOTHING"
+
+Shift_R; grave
+	echo "DO NOTHING"
+
+Control_L; grave
+	echo "DO NOTHING"
+
+Super_L; grave
+	echo "DO NOTHING"
+
+space; grave
+	echo "DO NOTHING"
+
+Alt_R; grave
+	echo "DO NOTHING"
+
+Control_R; grave
+	echo "DO NOTHING"
+
+{Left,Down,Up,Right};agrave; Right
 	echo "DO NOTHING"

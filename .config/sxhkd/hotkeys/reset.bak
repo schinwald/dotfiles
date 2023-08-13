@@ -1,0 +1,20 @@
+Alt_L; Super_L; r
+	i3 restart
+
+{grave,1,2,3,4,5,6,7,8,9,minus,equal,BackSpace}; grave; Right
+	echo "DO NOTHING"
+
+{Tab,q,w,e,r,t,y,u,i,o,p,bracketleft,bracketright,backslash}; grave; Right
+	echo "DO NOTHING"
+
+{Caps_Lock,a,s,d,f,g,h,j,k,l,semicolon,apostrophe,Return}; grave; Right
+	echo "DO NOTHING"
+
+{Shift_L,z,x,c,v,b,n,m,comma,period,slash,Shift_R}; grave; Right
+	echo "DO NOTHING"
+
+{Control_L,Super_L,space,Alt_R,Control_R}; grave; Right
+	echo "DO NOTHING"
+
+{Left,Down,Up,Right}; grave; Right
+	echo "DO NOTHING"
