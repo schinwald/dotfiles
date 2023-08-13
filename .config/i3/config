@@ -63,48 +63,51 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Remove window title bars
-default_border pixel 3
-default_floating_border pixel 3
+new_window normal 10
+for_window [class="kitty"] border pixel 10
+default_border normal 10
+default_floating_border normal 10
+for_window [window_type="popup_menu"] border pixel 0
 
 # Add gaps
 gaps inner 40
 
-# Reset containers
-exec --no-startup-id i3-msg '[class=".*"] move container to workspace 100'
+# Go to workspace 100
+exec --no-startup-id i3-msg 'workspace 100'
 
 # Handle class workspace assignments
-# for_window [class=""] move container to workspace number 0: I-0
-for_window [class="kitty"] move container to workspace number 1: I-1
-# for_window [class=""] move container to workspace number 2: I-2
-# for_window [class=""] move container to workspace number 3: I-3
-for_window [class="Postman"] move container to workspace number 4: I-4
-for_window [class="MongoDB Compass"] move container to workspace number 5: I-5
-# for_window [class=""] move container to workspace number 6: I-6
-# for_window [class=""] move container to workspace number 7: I-7
-# for_window [class=""] move container to workspace number 8: I-8
-# for_window [class=""] move container to workspace number 9: I-9
+# assign [class=""] workspace number 0: I-0
+assign [class="kitty"] workspace number 1: I-1
+# assign [class=""] workspace number 2: I-2
+# assign [class=""] workspace number 3: I-3
+assign [class="Postman"] workspace number 4: I-4
+assign [class="MongoDB Compass"] workspace number 5: I-5
+# assign [class=""] workspace number 6: I-6
+# assign [class=""] workspace number 7: I-7
+# assign [class=""] workspace number 8: I-8
+# assign [class=""] workspace number 9: I-9
 
-# for_window [class=""] move container to workspace number 10: O-0
-for_window [class="firefox" title="New chat"] move container to workspace number 11: O-1
-for_window [class="firefox"] move container to workspace number 12: O-2
-for_window [class="Code"] move container to workspace number 13: O-3
-for_window [class="jetbrains-idea"] move container to workspace number 14: O-4
-# for_window [class=""] move container to workspace number 15: O-5
-# for_window [class=""] move container to workspace number 16: O-6
-# for_window [class=""] move container to workspace number 17: O-7
-# for_window [class=""] move container to workspace number 18: O-8
-# for_window [class=""] move container to workspace number 19: O-9
+# assign [class=""] workspace number 10: O-0
+assign [class="firefox" title="New chat"] workspace number 11: O-1
+assign [class="firefox"] workspace number 12: O-2
+assign [class="Code"] workspace number 13: O-3
+assign [class="jetbrains-idea"] workspace number 14: O-4
+# assign [class=""] workspace number 15: O-5
+# assign [class=""] workspace number 16: O-6
+# assign [class=""] workspace number 17: O-7
+# assign [class=""] workspace number 18: O-8
+# assign [class=""] workspace number 19: O-9
 
-# for_window [class=""] move container to workspace number 20: P-0
-for_window [class="Bitwarden"] move container to workspace number 21: P-1
-for_window [class="thunderbird"] move container to workspace number 22: P-2
-for_window [class="Slack"] move container to workspace number 23: P-3
-# for_window [class=""] move container to workspace number 24: P-4
-for_window [class="Spotify"] move container to workspace number 25: P-5
-# for_window [class=""] move container to workspace number 23: P-6
-# for_window [class=""] move container to workspace number 27: P-7
-# for_window [class=""] move container to workspace number 28: P-8
-# for_window [class=""] move container to workspace number 29: P-9
+# assign [class=""] workspace number 20: P-0
+assign [class="Bitwarden"] workspace number 21: P-1
+assign [class="thunderbird"] workspace number 22: P-2
+assign [class="Slack"] workspace number 23: P-3
+# assign [class=""] workspace number 24: P-4
+assign [class="Spotify"] workspace number 25: P-5
+# assign [class=""] workspace number 23: P-6
+# assign [class=""] workspace number 27: P-7
+# assign [class=""] workspace number 28: P-8
+# assign [class=""] workspace number 29: P-9
 
 # Go to workspace O-1
 exec --no-startup-id i3-msg 'workspace number 11: O-1'
