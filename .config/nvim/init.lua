@@ -70,6 +70,17 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  { 'rafamadriz/friendly-snippets' },
+
+  {
+    'L3MON4D3/LuaSnip',
+    -- Follow latest release.
+    version = '2.0.0',
+    -- Install jsregexp (optional!).
+    build = 'make install_jsregexp',
+    dependencies = { 'rafamadriz/friendly-snippets' }
+  },
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -112,6 +123,9 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
+
+  -- File-system explorer
+  { 'preservim/nerdtree' },
 
   -- Useful plugin to show you pending keybinds.
   {
@@ -204,6 +218,21 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
+
+  -- Markdown Preview
+  {
+      "iamcco/markdown-preview.nvim",
+      build = function() vim.fn["mkdp#util#install"]() end,
+  }
+
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   build = "cd app && npm install",
+  --   init = function()
+  --     vim.g.mkdp_filetypes = { "markdown" }
+  --   end,
+  --   ft = { "markdown" }
+  -- }
 }, {})
 
 -- [[ Setting options ]]
@@ -258,6 +287,10 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Move page half way up/down
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -269,17 +302,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-- [[ configure telescope ]]
+-- see `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<c-u>'] = false,
+        ['<c-d>'] = false,
       },
     },
   },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed
