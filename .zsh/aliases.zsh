@@ -19,6 +19,7 @@ alias l='ll'
 alias ls='exa --header --group-directories-first -t=mod --time-style=long-iso'
 alias la='exa --all --header --group-directories-first -t=mod --time-style=long-iso'
 alias ll='exa --all --header --long --group-directories-first -t=mod --time-style=long-iso'
+alias rm='rm -rf'
 alias v='nvim'
 alias pu=port_used
 alias ssh-config='cat ~/.ssh/config'
@@ -29,13 +30,15 @@ alias ssh-config='cat ~/.ssh/config'
 docker_container_stop_all () {
 	containers=`docker container list --quiet`
 	if [[ -n "$containers" ]]; then
-		docker container stop $containers & echo 'docker containers: stopped all'
+		echo "$containers" | xargs docker container stop
+		echo 'docker containers: stopped all'
 	else
 		echo 'no docker containers'
 	fi
 }
 
 alias dcl='docker container list'
+alias dcs='docker container stop'
 alias dcsa=docker_container_stop_all
 alias dsp='echo "y" | docker system prune --volumes'
 
