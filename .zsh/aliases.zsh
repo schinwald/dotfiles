@@ -20,6 +20,7 @@ alias ls='exa --header --group-directories-first -t=mod --time-style=long-iso'
 alias la='exa --all --header --group-directories-first -t=mod --time-style=long-iso'
 alias ll='exa --all --header --long --group-directories-first -t=mod --time-style=long-iso'
 alias rm='rm -rf'
+alias cp='cp -r'
 alias v='nvim'
 alias pu=port_used
 alias ssh-config='cat ~/.ssh/config'
