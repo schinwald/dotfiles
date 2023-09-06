@@ -5,6 +5,91 @@ INSTALLPATH='/var/tmp/dotfiles'
 rm -rf $INSTALLPATH 
 mkdir $INSTALLPATH
 
+# +--------------------+
+# | COMMAND-LINE TOOLS |
+# ======================
+
+# Update system
+sudo apt update
+
+# Install github & extensions
+sudo apt install gh
+gh extension install https://github.com/nektos/gh-act
+
+# Install git
+sudo apt install git
+
+# Install zsh
+sudo apt install zsh
+
+# Install starship
+sudo snap install starship
+
+# Install ripgrep (https://github.com/BurntSushi/ripgrep)
+sudo apt install ripgrep
+
+# Install fd (https://github.com/sharkdp/fd)
+sudo apt install fd-find
+
+# Install fzf (https://github.com/junegunn/fzf)
+sudo apt install fzf
+
+# Install exa (https://github.com/ogham/exa)
+sudo apt install exa
+
+# Install z (https://github.com/rupa/z) 
+(
+	cd $INSTALLPATH 
+	git clone git@github.com:rupa/z.git
+	cd z
+	sudo mv ./z.sh $BINPATH/z.sh
+	sudo mv ./z.1 $MANPATH/z.1 
+)
+
+# Install pomo
+(
+	cd $INSTALLPATH
+	git clone git@github.com:kevinschoon/pomo.git
+	cd pomo
+	make
+	sudo mv ./bin/pomo $BINPATH/pomo 	
+)
+
+# Install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install neovim
+sudo apt install neovim
+
+# Install imagemagick
+sudo apt install imagemagick
+
+# Install autorandr
+sudo apt install autorandr
+
+# Install sxhkd
+sudo apt install sxhkd
+
+# Install btop
+sudo apt install \
+  coreutils \
+  sed \
+  git \
+  build-essential \
+  gcc-11 \
+  g++-11
+
+(
+  cd $INSTALLPATH
+  git clone --recursive https://github.com/aristocratos/btop.git
+  cd btop
+  make
+  sudo make install
+)
+
 # +-------------+
 # | PROGRAMMING |
 # ===============
@@ -128,75 +213,3 @@ sudo apt install \
 
 # Install cmatrix
 sudo apt install cmatrix
-
-# +--------------------+
-# | COMMAND-LINE TOOLS |
-# ======================
-
-# Install zsh
-sudo apt install zsh
-
-# Install starship
-sudo snap install starship
-
-# Install fd (https://github.com/sharkdp/fd)
-sudo apt install fd-find
-
-# Install fzf (https://github.com/junegunn/fzf)
-sudo apt install fzf
-
-# Install exa (https://github.com/ogham/exa)
-sudo apt install exa
-
-# Install z (https://github.com/rupa/z) 
-(
-	cd $INSTALLPATH 
-	git clone git@github.com:rupa/z.git
-	cd z
-	sudo mv ./z.sh $BINPATH/z.sh
-	sudo mv ./z.1 $MANPATH/z.1 
-)
-
-# Install pomo
-(
-	cd $INSTALLPATH
-	git clone git@github.com:kevinschoon/pomo.git
-	cd pomo
-	make
-	sudo mv ./bin/pomo $BINPATH/pomo 	
-)
-
-# Install ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Install neovim
-sudo apt install neovim
-
-# Install imagemagick
-sudo apt install imagemagick
-
-# Install autorandr
-sudo apt install autorandr
-
-# Install sxhkd
-sudo apt install sxhkd
-
-# Install btop
-sudo apt install \
-  coreutils \
-  sed \
-  git \
-  build-essential \
-  gcc-11 \
-  g++-11
-
-(
-  cd $INSTALLPATH
-  git clone --recursive https://github.com/aristocratos/btop.git
-  cd btop
-  make
-  sudo make install
-)
