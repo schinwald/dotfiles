@@ -12,6 +12,9 @@ mkdir $INSTALLPATH
 # Update system
 sudo apt update
 
+# Install moreutils (https://joeyh.name/code/moreutils)
+sudo apt install moreutils
+
 # Install github & extensions
 sudo apt install gh
 gh extension install https://github.com/nektos/gh-act
