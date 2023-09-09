@@ -64,20 +64,10 @@ alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
 # +----------------+
 # | DOCKER ALIASES |
 # ==================
-docker_container_stop_all () {
-	containers=`docker container list --quiet`
-	if [[ -n "$containers" ]]; then
-		echo "$containers" | xargs docker container stop
-		echo 'docker containers: stopped all'
-	else
-		echo 'no docker containers'
-	fi
-}
-
-alias dcl='docker container list'
-alias dcs='docker container stop'
-alias dcsa=docker_container_stop_all
-alias dsp='echo "y" | docker system prune --volumes'
+alias dcl='docker container list | fzf --multi --exact --header-lines=1'
+alias dcr='dcl | tr -s " " | cut -d " " -f 1 | xargs docker container restart'
+alias dcs='dcl | tr -s " " | cut -d " " -f 1 | xargs docker container stop'
+alias dsp='docker container list --quiet > /dev/null | xargs docker container stop; docker system prune --all --volumes --force'
 
 # +-------------+
 # | GIT ALIASES |
@@ -89,7 +79,7 @@ git_branch_prune_all () {
 	git branch -vv | grep gone | sed -e s/\*//g | awk "{ print \$1 }" | xargs git branch -d 2> /dev/null
 }
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias gbpa=git_branch_prune_all
 
 # +------------------------+
