@@ -59,7 +59,7 @@ alias rm='rm -rf'
 alias cp='cp -r'
 alias v='nvim'
 alias pu=port_used
-alias ssh-config='cat ~/.ssh/config'
+alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
 
 # +----------------+
 # | DOCKER ALIASES |
