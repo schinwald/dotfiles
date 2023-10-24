@@ -1,11 +1,13 @@
 xmodmap ~/.xmodmap-spruce &
 
 kitty &
+kitty &
+kitty &
 postman &
 mongodb-compass &
 
+kitty --class=kitty-main &
 firefox --new-window &
-code &
 
 ~/Applications/Bitwarden.AppImage &
 thunderbird &
