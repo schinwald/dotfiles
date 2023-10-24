@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -107,10 +108,44 @@ unset FILE
 
 # Add to PATH environment variable
 export PATH=/home/james/.local/share/bob/nvim-bin:$PATH
+export PATH=/home/james/go/bin:$PATH
 
-# Setup nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Get default node version from nvm
+NVM_DEFAULT_VERSION=$(cat ~/.nvm/alias/default)
+if [ $NVM_DEFAULT_VERSION = "node" ]; then
+    NVM_DEFAULT_VERSION=$(ls -1 ~/.nvm/versions/node | tail -n 1)
+fi
+
+# Grab all binaries
+NVM_DEFAULT_BIN_PATH=~/.nvm/versions/node/$NVM_DEFAULT_VERSION/bin
+NVM_DEFAULT_BINS=$(l -1 $NVM_DEFAULT_BIN_PATH | cut -d ' ' -f 1 | tr '\n' ' ')
+
+# Lazy-load nvm before your node commands
+nvm_lazy_load() {
+	unset -f $(echo $NVM_DEFAULT_BINS)
+	unset -f nvm nvim
+	export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+
+# Loop through all binaries and create functions for bootstrapping nvm
+for NVM_DEFAULT_BIN in $(echo $NVM_DEFAULT_BINS); do
+	eval "$NVM_DEFAULT_BIN() {
+		nvm_lazy_load
+		$NVM_DEFAULT_BIN $@
+	}"
+done
+
+# Manually create functions for non-binaries
+nvm() {
+	nvm_lazy_load
+	nvm $@
+}
+
+nvim() {
+	nvm_lazy_load
+	nvim $@
+}
 
 # Setup cargo
 source ~/.cargo/env
@@ -126,4 +161,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 # Setup starship
 eval "$(starship init zsh)"
 
+# bun completions
+[ -s "/home/james/.bun/_bun" ] && source "/home/james/.bun/_bun"
 
+# zprof
