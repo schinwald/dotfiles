@@ -3,7 +3,6 @@
 #
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
-#
 
 include ~/.config/i3/mode
 
@@ -63,21 +62,18 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Remove window title bars
-new_window normal 10
-for_window [class="kitty"] border pixel 10
-default_border normal 10
-default_floating_border normal 10
-for_window [window_type="popup_menu"] border pixel 0
+default_border normal 3
+default_floating_border normal 3
 
 # Add gaps
-gaps inner 40
+gaps inner 30
 
 # Go to workspace 100
 exec --no-startup-id i3-msg 'workspace 100'
 
 # Handle class workspace assignments
 # assign [class=""] workspace number 0: I-0
-assign [class="kitty"] workspace number 1: I-1
+assign [class="^kitty$"] workspace number 1: I-1
 # assign [class=""] workspace number 2: I-2
 # assign [class=""] workspace number 3: I-3
 assign [class="Postman"] workspace number 4: I-4
@@ -88,7 +84,7 @@ assign [class="MongoDB Compass"] workspace number 5: I-5
 # assign [class=""] workspace number 9: I-9
 
 # assign [class=""] workspace number 10: O-0
-assign [class="firefox" title="New chat"] workspace number 11: O-1
+assign [class="^kitty-main$"] workspace number 11: O-1
 assign [class="firefox"] workspace number 12: O-2
 assign [class="Code"] workspace number 13: O-3
 assign [class="jetbrains-idea"] workspace number 14: O-4
