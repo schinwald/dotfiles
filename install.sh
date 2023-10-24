@@ -40,22 +40,30 @@ sudo apt install fzf
 # Install exa (https://github.com/ogham/exa)
 sudo apt install exa
 
+# Install bat (https://github.com/sharkdp/bat)
+sudo apt install bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # Install z (https://github.com/rupa/z) 
 (
-	cd $INSTALLPATH 
-	git clone git@github.com:rupa/z.git
-	cd z
-	sudo mv ./z.sh $BINPATH/z.sh
-	sudo mv ./z.1 $MANPATH/z.1 
+  cd $INSTALLPATH 
+  git clone git@github.com:rupa/z.git
+  cd z
+  sudo mv ./z.sh $BINPATH/z.sh
+  sudo mv ./z.1 $MANPATH/z.1 
 )
+
+# Install uuid
+sudo apt install uuid
 
 # Install pomo
 (
-	cd $INSTALLPATH
-	git clone git@github.com:kevinschoon/pomo.git
-	cd pomo
-	make
-	sudo mv ./bin/pomo $BINPATH/pomo 	
+  cd $INSTALLPATH
+  git clone git@github.com:kevinschoon/pomo.git
+  cd pomo
+  make
+  sudo mv ./bin/pomo $BINPATH/pomo 	
 )
 
 # Install ohmyzsh
@@ -114,6 +122,25 @@ npm install -g ntl
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install git-graph
+cargo install git-graph
+
+# Install lua
+sudo apt install lua5.4
+
+# Install luarocks
+(
+  VERSION=3.9.2
+  cd ~/Downloads
+  wget https://luarocks.org/releases/luarocks-$VERSION.tar.gz
+  tar zxpf luarocks-$VERSION.tar.gz
+  cd luarocks-$VERSION
+  ./configure && make && sudo make install
+  sudo luarocks install luasocket
+  cd ~/Downloads
+  rm -rf luarocks-$VERSION.tar.gz
+)
 
 # +----------------
 # | RICING SYSTEM |
