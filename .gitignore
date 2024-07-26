@@ -1,0 +1,10 @@
+*
+!.gitignore
+!.config/
+!.config/**
+!.zsh/
+!.zsh/**
+!.zshrc
+!.install/
+!.install/**
+!.installer.sh
