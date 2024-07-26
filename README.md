@@ -15,9 +15,7 @@ alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 df status
 ```
 
-### Setup
-
-#### Run
+### Install
 ```bash
-~/installer.sh
+~/install.sh
 ```
