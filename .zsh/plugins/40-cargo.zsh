@@ -1,2 +1,2 @@
 # Setup cargo
-source ~/.cargo/env
+zsh-defer source ~/.cargo/env

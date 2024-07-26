@@ -1,2 +1,2 @@
 # Setup z
-source /usr/local/bin/z.sh
+zsh-defer source /usr/local/bin/z.sh
