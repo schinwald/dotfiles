@@ -4,7 +4,7 @@ These are my dotfiles for both Ubuntu and MacOS systems. I will probably extend 
 
 ## Installation
 
-The installation process is a WIP since there are many ways the installation can go wrong.
+The installation process is a WIP since there are many ways the installation can go wrong D:
 
 ### Clone
 Clone the repository as a bare-repository
@@ -12,18 +12,12 @@ Clone the repository as a bare-repository
 cd ~/
 git clone --bare git@github.com:schinwald/dotfiles.git $HOME/.dotfiles
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-df config --local status.showUntrackedFiles no
 df status
 ```
 
 ### Setup
 
-#### Ubuntu
+#### Run
 ```bash
-~/setup/ubuntu/install.sh
-```
-
-#### MacOS
-```bash
-~/setup/mac/install.sh
+~/installer.sh
 ```

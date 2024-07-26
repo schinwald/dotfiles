@@ -8,3 +8,4 @@
 !.install/
 !.install/**
 !.installer.sh
+!README.md
