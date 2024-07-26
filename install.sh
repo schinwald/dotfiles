@@ -26,36 +26,30 @@ sudo apt install git
 sudo apt install zsh
 
 # Install starship
-sudo snap install starship
+~/.install/starship.sh
 
 # Install ripgrep (https://github.com/BurntSushi/ripgrep)
-sudo apt install ripgrep
+~/.install/ripgrep.sh
 
 # Install fd (https://github.com/sharkdp/fd)
-sudo apt install fd-find
+~/.install/fd.sh
 
 # Install fzf (https://github.com/junegunn/fzf)
-sudo apt install fzf
+~/.install/fzf.sh
 
-# Install exa (https://github.com/ogham/exa)
-sudo apt install exa
+# Install lsd (https://github.com/lsd-rs/lsd)
+~/.install/lsd.sh
 
 # Install bat (https://github.com/sharkdp/bat)
 sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-# Install z (https://github.com/rupa/z) 
-(
-  cd $INSTALLPATH 
-  git clone git@github.com:rupa/z.git
-  cd z
-  sudo mv ./z.sh $BINPATH/z.sh
-  sudo mv ./z.1 $MANPATH/z.1 
-)
+# Install zoxide (https://github.com/ajeetdsouza/zoxide) 
+~/.install/zoxide.sh
 
 # Install uuid
-sudo apt install uuid
+~/.install/uuid.sh
 
 # Install pomo
 (
@@ -73,7 +67,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install neovim
-sudo apt install neovim
 
 # Install imagemagick
 sudo apt install imagemagick
