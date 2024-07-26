@@ -4,6 +4,8 @@ $hostname\
 $docker_context\
 $rust\
 $nodejs\
+$python\
+$package\
 $fill\
 $cmd_duration $jobs $time\
 $line_break\
@@ -93,3 +95,10 @@ symbol = " "
 
 [nodejs]
 format = "[$symbol($version )]($style)"
+
+[python]
+symbol = '👾 '
+pyenv_version_name = true
+
+[package]
+format = "[🎁 $version](208 bold)"
