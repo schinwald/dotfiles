@@ -24,7 +24,7 @@ unset FILE
 
 # Add all plugin files using a deferred strategy
 for FILE in ~/.zsh/plugins/*.zsh; do
-	zsh-defer source $FILE
+	source $FILE
 done
 unset FILE
 
