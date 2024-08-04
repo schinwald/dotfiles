@@ -18,7 +18,7 @@ alias l='lla'
 alias lt='ls --tree'
 alias rm='rm -rfi'
 alias cp='cp -ri'
-alias v='nvim'
+alias v=nvim_open
 alias pu=port_used
 alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
 
@@ -37,7 +37,7 @@ alias dcd='docker-compose down'
 # +-------------+
 # | GIT ALIASES |
 # ===============
-alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias df='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
 alias gg='git-graph --color=always | bat'
 alias gbpa=git_branch_prune_all
 
@@ -86,6 +86,11 @@ edit_config () {
 	fi
 	
 	nvim ${config_list[$config_chosen]}
+}
+
+nvim_open () {
+  DIRECTORY=`dirname $@[$#]`
+  nvim -c "cd $DIRECTORY" $@
 }
 
 port_used () {
