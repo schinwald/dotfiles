@@ -8,4 +8,5 @@
 !.install/
 !.install/**
 !.installer.sh
+!.envrc
 !README.md
