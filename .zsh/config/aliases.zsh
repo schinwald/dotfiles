@@ -53,19 +53,21 @@ alias icat='kitty +kitten icat'
 edit_config () {
 	declare -A config_list
 
-	config_list[aliases]="$HOME/.zsh/aliases.zsh"
+	config_list[home]="$HOME/"
 	config_list[i3]="$HOME/.config/i3/config"
 	config_list[picom]="$HOME/.config/picom/picom.conf"
 	config_list[polybar]="$HOME/.config/polybar/config.ini"
-	config_list[sxhkd]="$HOME/.config/sxhkd/launch.sh"
+	config_list[sxhkd]="$HOME/.config/sxhkd"
 	config_list[rofi]="$HOME/.config/rofi/config.rasi"
 	config_list[redshift]="$HOME/.config/redshift/redshift.conf"
 	config_list[kitty]="$HOME/.config/kitty/kitty.conf"
-	config_list[nvim]="$HOME/.config/nvim/init.lua"
+	config_list[nvim]="$HOME/.config/nvim/"
 	config_list[starship]="$HOME/.config/starship.toml"
 	config_list[flameshot]="$HOME/.config/flameshot/flameshot.ini"
 	config_list[ssh]="$HOME/.ssh/config"
 	config_list[zshrc]="$HOME/.zshrc"
+	config_list[zsh]="$HOME/.zsh/"
+	config_list[aliases]="$HOME/.zsh/config/aliases.zsh"
 	config_list[xprofile]="$HOME/.xprofile"
 	config_list[install]="$HOME/install.sh"
 
