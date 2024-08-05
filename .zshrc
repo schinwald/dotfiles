@@ -1,17 +1,10 @@
-# Uncomment this line and the line at the bottom of the file to profile
-# zmodload zsh/zprof
+# Set this to 1 to profile
+ZSH_PROFILE=0
 
-# export ZSH_PROFILE=1
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Start profiler
+if [[ ZSH_PROFILE -eq 1 ]]; then
+  zmodload zsh/zprof
+fi
 
 # Add all configuration files
 for FILE in ~/.zsh/config/*.zsh; do
@@ -28,4 +21,7 @@ for FILE in ~/.zsh/plugins/*.zsh; do
 done
 unset FILE
 
-# zprof
+# End profiler
+if [[ ZSH_PROFILE -eq 1 ]]; then
+  zprof
+fi
