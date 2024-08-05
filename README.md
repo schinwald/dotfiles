@@ -7,6 +7,7 @@ These are my dotfiles for both Ubuntu and MacOS systems. I will probably extend 
 The installation process is a WIP since there are many ways the installation can go wrong D:
 
 ### Clone
+
 Clone the repository as a bare-repository
 ```bash
 cd ~/
@@ -28,3 +29,7 @@ If you want to install everything individually then run:
 ```
 
 > NOTE: the runner is used for loading helper functions necessary for installers
+
+### Startup
+
+On ubuntu you can add your startup files to `~/.xprofile`
