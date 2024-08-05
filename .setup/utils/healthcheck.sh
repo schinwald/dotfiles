@@ -1,4 +1,4 @@
-source ./constants.sh
+source "$HOME/.setup/utils/constants.sh"
 
 echo "Performing healthcheck..."
 
