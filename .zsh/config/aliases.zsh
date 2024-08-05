@@ -89,7 +89,14 @@ edit_config () {
 }
 
 nvim_open () {
-  DIRECTORY=`dirname $@[$#]`
+  DIRECTORY=""
+
+  if [[ -z $1 ]]; then
+    DIRECTORY=`pwd`
+  else
+    DIRECTORY=`dirname $@[$#]`
+  fi
+
   nvim -c "cd $DIRECTORY" $@
 }
 
