@@ -16,6 +16,15 @@ df status
 ```
 
 ### Install
+
+If you want to install everything all together then run:
 ```bash
-~/install.sh
+~/.setup/install.sh
 ```
+
+If you want to install everything individually then run:
+```bash
+~/.setup/utils/runner.sh ~/setup/installers/<os>/<installer>
+```
+
+> NOTE: the runner is used for loading helper functions necessary for installers

@@ -5,8 +5,7 @@
 !.zsh/
 !.zsh/**
 !.zshrc
-!.install/
-!.install/**
-!.installer.sh
+!.setup/
+!.setup/**
 !.envrc
 !README.md

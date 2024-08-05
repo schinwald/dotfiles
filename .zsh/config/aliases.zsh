@@ -69,7 +69,7 @@ edit_config () {
 	config_list[zsh]="$HOME/.zsh/"
 	config_list[aliases]="$HOME/.zsh/config/aliases.zsh"
 	config_list[xprofile]="$HOME/.xprofile"
-	config_list[install]="$HOME/install.sh"
+	config_list[setup]="$HOME/.setup"
 
 	config_keys=`for key in "${(@k)config_list}"; do; echo $key; done`
 
