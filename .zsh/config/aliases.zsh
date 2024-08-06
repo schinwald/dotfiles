@@ -85,7 +85,7 @@ edit_config () {
 		return 0
 	fi
 	
-	nvim ${config_list[$config_chosen]}
+	nvim_open ${config_list[$config_chosen]}
 }
 
 nvim_open () {
