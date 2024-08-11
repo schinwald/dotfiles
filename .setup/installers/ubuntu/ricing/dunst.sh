@@ -1,4 +1,5 @@
 # Install dunst
+prompt "Would you like to install dunst (notifications)?"
 sudo apt install \
   libdbus-1-dev \
   libx11-dev \

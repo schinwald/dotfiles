@@ -1,4 +1,5 @@
 # Install picom
+prompt "Would you like to install picom (compositor)?"
 sudo apt install \
   libxext-dev \
   libxcb1-dev \

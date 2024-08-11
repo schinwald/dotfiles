@@ -1,4 +1,5 @@
 # Install polybar
+prompt "Would you like to install polybar (status bar)?"
 sudo apt install \
   build-essential \
   git \
