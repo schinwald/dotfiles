@@ -6,6 +6,8 @@ echo "Performing healthcheck..."
 rm -rf $DIR_TEMP
 mkdir $DIR_TEMP
 
+echo "Making sure all common installers match..."
+
 # Generate tmp files that keep track of all common installers
 for SYSTEM in "${SYSTEMS[@]}"; do
   DIR_INSTALLER="$DIR_INSTALLERS/$SYSTEM"
@@ -43,7 +45,9 @@ done
 unset SYSTEM
 unset COUNTER
 
-# TODO: check that all installer scripts are exucutable
+echo "Making all installers executable..."
+
+chmod -R +x "$DIR_INSTALLERS"
 
 # # Clean up temp folder
 rm -rf $DIR_TEMP
