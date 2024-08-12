@@ -1,3 +1,4 @@
+-- TODO: configure this properly
 return {
 	"andymass/vim-matchup",
 	setup = function()
