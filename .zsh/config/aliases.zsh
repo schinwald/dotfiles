@@ -65,6 +65,7 @@ edit_config () {
 	config_list[starship]="$HOME/.config/starship.toml"
 	config_list[flameshot]="$HOME/.config/flameshot/flameshot.ini"
 	config_list[aerospace]="$HOME/.config/aerospace/aerospace.toml"
+	config_list[jankyborders]="$HOME/.config/borders/bordersrc"
 	config_list[ssh]="$HOME/.ssh/config"
 	config_list[zshrc]="$HOME/.zshrc"
 	config_list[zsh]="$HOME/.zsh/"
