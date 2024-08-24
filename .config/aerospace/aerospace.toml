@@ -206,6 +206,21 @@ check-further-callbacks = true
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+check-further-callbacks = true
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+check-further-callbacks = true
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+check-further-callbacks = true
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 check-further-callbacks = true
 run = ['move-node-to-workspace 2']
@@ -214,3 +229,33 @@ run = ['move-node-to-workspace 2']
 if.app-id = 'com.microsoft.VSCode'
 check-further-callbacks = true
 run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.docker.docker'
+check-further-callbacks = true
+run = ['move-node-to-workspace 0']
+
+[[on-window-detected]]
+if.app-id = 'org.pgadmin.pgadmin4'
+check-further-callbacks = true
+run = ['move-node-to-workspace D']
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+check-further-callbacks = true
+run = ['move-node-to-workspace S']
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+check-further-callbacks = true
+run = ['move-node-to-workspace W']
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+check-further-callbacks = true
+run = ['move-node-to-workspace N']
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+check-further-callbacks = true
+run = ['move-node-to-workspace M']
