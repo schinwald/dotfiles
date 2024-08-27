@@ -8,6 +8,8 @@ The installation process is a WIP since there are many ways the installation can
 
 ### Clone
 
+First, make sure you have git installed...
+
 Clone the repository as a bare-repository
 ```bash
 cd ~/
