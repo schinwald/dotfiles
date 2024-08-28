@@ -62,7 +62,7 @@ edit_config () {
 	config_list[redshift]="$HOME/.config/redshift/redshift.conf"
 	config_list[kitty]="$HOME/.config/kitty/kitty.conf"
 	config_list[nvim]="$HOME/.config/nvim/"
-	config_list[starship]="$HOME/.config/starship.toml"
+	config_list[starship]="$HOME/.config/starship/starship.toml"
 	config_list[flameshot]="$HOME/.config/flameshot/flameshot.ini"
 	config_list[aerospace]="$HOME/.config/aerospace/aerospace.toml"
 	config_list[jankyborders]="$HOME/.config/borders/bordersrc"
