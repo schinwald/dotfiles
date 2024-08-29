@@ -37,7 +37,17 @@ alias dcd='docker-compose down'
 # +-------------+
 # | GIT ALIASES |
 # ===============
+# dotfiles
 alias df='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
+alias dfa='df add'
+alias dfaa='df add --all'
+alias dfapa='df add --patch'
+alias dfc='df commit -v'
+alias dfp='df push'
+alias dfl='df pull'
+alias dfst='df status'
+
+# git
 alias gg='git-graph --color=always | bat'
 alias gbpa=git_branch_prune_all
 
