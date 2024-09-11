@@ -55,6 +55,7 @@ alias gc='git commit -v'
 alias gp='git push'
 alias gl='git pull'
 alias gst='git status'
+alias gsta='git stash push'
 alias gg='git-graph --color=always | bat'
 alias gbpa=git_branch_prune_all
 
