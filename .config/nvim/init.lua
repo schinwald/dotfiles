@@ -1,6 +1,8 @@
 -- Set the leader key
 -- See `:help mapleader`
+-- Unset the space key first
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
