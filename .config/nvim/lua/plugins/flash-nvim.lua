@@ -1,5 +1,12 @@
 return {
 	"folke/flash.nvim",
+	enabled = function()
+		if vim.g.vscode then
+			return false
+		end
+
+		return false
+	end,
 	event = "VeryLazy",
 	---@type Flash.Config
 	opts = {},

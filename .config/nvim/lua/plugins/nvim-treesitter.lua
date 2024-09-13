@@ -1,6 +1,13 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	enable = function()
+		if vim.g.vscode then
+			return false
+		end
+
+		return true
+	end,
 	opts = {
 		ensure_installed = {
 			"bash",
