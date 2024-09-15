@@ -1,0 +1,85 @@
+;; ===================================================================================================
+;; The source definition (this is what the keyboard actually looks like)
+;; ===================================================================================================
+
+(defsrc
+      esc    f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12
+      grv    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+      tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+      caps   a      s      d      f      g      h      j      k      l      ;      '      ret
+      lsft   z      x      c      v      b      n      m      ,      .      /      rsft
+      fn     lctl   lalt   lmet                 spc                  rmet   ralt   rctl
+)
+
+;; ===================================================================================================
+;; All the layers 
+;; ===================================================================================================
+
+(deflayer default
+      esc    f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12
+      `      1      2      3      4      5      6      7      8      9      0      -      =      bspc
+      tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+      esc    a      s      d      f      g      h      j      k      l      ;      '      ret
+      lsft   z      x      c      v      b      n      m      ,      .      /      rsft
+      lctl   fn     lalt   @ldn                 spc                  @lup   ralt   rctl
+)
+
+(deflayer layer-down
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     1      2      3      4      5      6      7      8      9      0      XX     XX     XX
+      XX     XX     XX     XX     @find  XX     left   down   up     rght   XX     XX     XX
+      XX     XX     @cut   @copy  @pste  XX     XX     XX     XX     XX     XX     XX
+      XX     XX     XX     XX                   XX                   XX     XX     XX
+)
+
+(deflayer layer-up
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     @lchv  @lsqr  @lcrl  @lbrt  XX     XX     @rbrt  @rcrl  @rsqr  @rchv  XX     XX 
+      XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX     XX
+      XX     XX     XX     XX                   XX                   XX     XX     XX
+)
+
+;; The guest layer is a layer for others to use that leans on default configuration
+
+(deflayer guest
+      _      _      _      _      _      _      _      _      _      _      _      _      _
+      _      _      _      _      _      _      _      _      _      _      _      _      _      _
+      _      _      _      _      _      _      _      _      _      _      _      _      _      _
+      _      _      _      _      _      _      _      _      _      _      _      _      _
+      _      _      _      _      _      _      _      _      _      _      _      _
+      _      _      _      _                    _                    _      _      _
+)
+
+;; ===================================================================================================
+;; Aliases
+;; ===================================================================================================
+
+(defalias
+  ldn (layer-toggle layer-down)
+  lup (layer-toggle layer-up)
+
+  ;; Modifiers
+  copy M-c
+  pste M-v
+  cut  M-x
+  find M-f
+
+  ;; Chevrons
+  lchv S-,
+  rchv S-.
+
+  ;; Rounded Brackets
+  lbrt S-9
+  rbrt S-0
+
+  ;; Square Brackets
+  lsqr [
+  rsqr ]
+
+  ;; Curly Brackets
+  lcrl S-[
+  rcrl S-]
+)
