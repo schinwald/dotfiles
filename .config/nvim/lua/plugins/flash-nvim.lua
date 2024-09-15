@@ -5,7 +5,7 @@ return {
 			return false
 		end
 
-		return false
+		return true
 	end,
 	event = "VeryLazy",
 	---@type Flash.Config
