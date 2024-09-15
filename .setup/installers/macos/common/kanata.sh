@@ -9,3 +9,13 @@ prompt "Would you like to install kanata (keymapper)?"
 )
 
 cargo install kanata
+
+prompt "Would you like to install kanata-tray (tray for kanata)?"
+
+(
+  FILENAME="kanata-tray-macos"
+  cd /tmp
+  curl -JOL https://github.com/rszyma/kanata-tray/releases/latest/download/$FILENAME
+  sudo mv $FILENAME /usr/local/bin/kanata-tray
+  chmod +x /usr/local/bin/kanata-tray
+)
