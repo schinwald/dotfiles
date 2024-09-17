@@ -39,7 +39,7 @@
       XX     1      2      3      4      5      6      7      8      9      0      XX     XX     XX
       XX     XX     XX     XX     @find  XX     left   down   up     rght   XX     XX     XX
       XX     XX     @cut   @copy  @pste  XX     XX     XX     XX     XX     XX     XX
-      XX     XX     XX     XX                   XX                   XX     XX     XX
+      XX     XX     XX     XX                   @spot                XX     XX     XX
 )
 
 (deflayer layer-up
@@ -66,6 +66,7 @@
   pste M-v
   cut  M-x
   find M-f
+  spot M-spc
 
   ;; Chevrons
   lchv S-,
