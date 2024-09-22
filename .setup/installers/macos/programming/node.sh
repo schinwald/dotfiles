@@ -1,8 +1,6 @@
 # Install node
 prompt "Would you like to install node?"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | PROFILE=/dev/null bash
-# TODO: migrate to fnm for speed (make sure to skip shell)
-# curl -fsSL https://fnm.vercel.app/install | bash
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/share/fnm" --skip-shell
 
 # Install bun
 npm install -g bun
