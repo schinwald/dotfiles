@@ -84,6 +84,8 @@ edit_config () {
 	config_list[flameshot]="$HOME/.config/flameshot/flameshot.ini"
 	config_list[aerospace]="$HOME/.config/aerospace/aerospace.toml"
 	config_list[jankyborders]="$HOME/.config/borders/bordersrc"
+	config_list[kanata]="$HOME/.config/kanata"
+	config_list[kanata-tray]="$HOME/.config/kanata-tray"
 	config_list[ssh]="$HOME/.ssh/config"
 	config_list[zshrc]="$HOME/.zshrc"
 	config_list[zsh]="$HOME/.zsh/"
