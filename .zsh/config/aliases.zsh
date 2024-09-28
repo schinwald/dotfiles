@@ -30,7 +30,7 @@ alias dcr='dcl | tr -s "  " | cut -d " " -f 1 | xargs docker container restart'
 alias dce='dcl | sed -e "s/ \{2,\}/@/g" | cut -d "@" -f 7 | xargs -I {} docker container exec -t {}'
 alias dcs='dcl | tr -s "  " | cut -d " " -f 1 | xargs docker container stop'
 alias dclg='dcl | sed "s/  /@/g" | tr -s "@" | cut -d "@" -f 7 | xargs docker logs --follow'
-alias dsp='docker container list --quiet > /dev/null | xargs docker container stop; docker system prune --all --volumes --force'
+alias dnk='docker container list --quiet > /dev/null | xargs docker container stop; docker system prune --all --volumes --force && docker volume prune --all --force'
 alias dcu='docker-compose up --build -d'
 alias dcd='docker-compose down'
 
