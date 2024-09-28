@@ -1,6 +1,6 @@
 return { -- Autocompletion
 	"hrsh7th/nvim-cmp",
-	enable = function()
+	enabled = function()
 		if vim.g.vscode then
 			return false
 		end

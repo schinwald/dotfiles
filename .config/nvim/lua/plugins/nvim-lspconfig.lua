@@ -1,6 +1,6 @@
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
-	enable = function()
+	enabled = function()
 		if vim.g.vscode then
 			return false
 		end

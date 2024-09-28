@@ -1,6 +1,6 @@
 return {
 	"folke/persistence.nvim",
-	enable = function()
+	enabled = function()
 		if vim.g.vscode then
 			return false
 		end
