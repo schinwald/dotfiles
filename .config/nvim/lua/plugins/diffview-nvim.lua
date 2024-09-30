@@ -1,5 +1,12 @@
 return {
 	"sindrets/diffview.nvim",
+	enabled = function()
+		if vim.g.vscode then
+			return false
+		end
+
+		return true
+	end,
 	keys = {
 		{
 			"<leader>dv",

@@ -1,5 +1,12 @@
 return {
 	"almo7aya/openingh.nvim",
+	enabled = function()
+		if vim.g.vscode then
+			return false
+		end
+
+		return true
+	end,
 	keys = {
 		{
 			"<leader>br",
