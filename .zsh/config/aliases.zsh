@@ -37,6 +37,12 @@ alias dcd='docker-compose down'
 # +-------------+
 # | GIT ALIASES |
 # ===============
+# gh cli
+alias ghl='gh repo list | cut -f1 | fzf'
+alias ghb='ghl | xargs gh browse --repo'
+alias ghc='ghl | xargs gh repo clone'
+alias gha='gh repo create'
+
 # dotfiles
 alias df='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
 alias dfa='df add'
