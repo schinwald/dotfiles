@@ -2,10 +2,14 @@ return {
 	"almo7aya/openingh.nvim",
 	keys = {
 		{
-			"<leader>ogh",
-			mode = { "v" },
+			"<leader>br",
+			"<cmd>OpenInGHRepo<cr>",
+			desc = "[B]rowse [r]epository",
+		},
+		{
+			"<leader>bl",
 			"<cmd>OpenInGHFileLines<cr>",
-			desc = "[O]pen in [G]it[H]ub",
+			desc = "[B]rowse repository on file [l]ine",
 		},
 	},
 }
