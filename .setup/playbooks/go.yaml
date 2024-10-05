@@ -1,0 +1,8 @@
+---
+- name: Install programmning language golang
+  hosts: localhost
+  become: true
+  vars:
+    go_reget: true # Ensures that go is removed and re-installed
+  roles:
+    - fubarhouse.golang
