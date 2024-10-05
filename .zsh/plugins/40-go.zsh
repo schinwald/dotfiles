@@ -1,2 +1,2 @@
 # Add to PATH environment variable
-export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
