@@ -7,4 +7,6 @@
 !.zshrc
 !.setup/
 !.setup/**
+!.daemons/
+!.daemons/**
 !README.md
