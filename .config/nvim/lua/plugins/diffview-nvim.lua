@@ -26,7 +26,6 @@ return {
 
 		-- Override the default DiffviewOpen command with some additional logic
 		vim.api.nvim_create_user_command("DiffviewOpen", function(opts)
-			vim.fn.use_default_git()
 			vim.g.is_diffview_open = true
 			diffview.open({})
 		end, { nargs = "?" })

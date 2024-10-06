@@ -20,3 +20,11 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 		end
 	end,
 })
+
+-- Use the default git when opening a new buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = vim.api.nvim_create_augroup("auto-git", { clear = true }),
+	callback = function()
+		vim.fn.use_default_git()
+	end,
+})
