@@ -11,20 +11,30 @@ return {
 		{
 			"<leader>dv",
 			function()
-				local diffview = require("diffview")
-
-				vim.fn.use_default_git()
-
 				if vim.g.is_diffview_open then
-					diffview.close()
+					vim.api.nvim_command("DiffviewClose")
 				else
-					-- TODO: add opts back into this
-					diffview.open()
+					vim.api.nvim_command("DiffviewOpen")
 				end
-
-				vim.g.is_diffview_open = not vim.g.is_diffview_open
 			end,
 			desc = "Diffview Toggle",
 		},
 	},
+	config = function(opts)
+		local diffview = require("diffview")
+		diffview.setup(opts)
+
+		-- Override the default DiffviewOpen command with some additional logic
+		vim.api.nvim_create_user_command("DiffviewOpen", function(opts)
+			vim.fn.use_default_git()
+			vim.g.is_diffview_open = true
+			diffview.open({})
+		end, { nargs = "?" })
+
+		-- Override the default DiffviewClose command with some additional logic
+		vim.api.nvim_create_user_command("DiffviewClose", function(opts)
+			vim.g.is_diffview_open = false
+			diffview.close()
+		end, { nargs = "?" })
+	end,
 }
