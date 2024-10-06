@@ -59,9 +59,11 @@ alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
 alias gp='git push'
+alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gl='git pull'
 alias gst='git status'
 alias gsta='git stash push'
+alias gsw='git switch'
 alias gg='git-graph --color=always | bat'
 alias gbpa=git_branch_prune_all
 
