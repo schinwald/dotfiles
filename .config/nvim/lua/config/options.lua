@@ -56,4 +56,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Remove ~ from end of file
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = {
+	diff = "/",
+	eob = " ",
+}
