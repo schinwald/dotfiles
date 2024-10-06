@@ -7,5 +7,12 @@ return {
 
 		return true
 	end,
-	config = true,
+	opts = {
+		worktrees = {
+			{
+				toplevel = vim.env.GIT_WORK_TREE,
+				gitdir = vim.env.GIT_DIR,
+			},
+		},
+	},
 }
