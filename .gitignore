@@ -2,6 +2,7 @@
 !.gitignore
 !.config/
 !.config/**
+.config/graphite
 !.zsh/
 !.zsh/**
 !.zshrc
