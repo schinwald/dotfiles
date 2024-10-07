@@ -50,8 +50,12 @@ alias dfaa='df add --all'
 alias dfapa='df add --patch'
 alias dfc='df commit -v'
 alias dfp='df push'
+alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
 alias dfl='df pull'
 alias dfst='df status'
+alias dfsta='df stash push'
+alias dfsw='df switch'
+alias dfb='git branch'
 
 # git
 alias ga='git add'
@@ -64,8 +68,9 @@ alias gl='git pull'
 alias gst='git status'
 alias gsta='git stash push'
 alias gsw='git switch'
-alias gg='git-graph --color=always | bat'
+alias gb='git branch'
 alias gbpa=git_branch_prune_all
+alias gg='git-graph --color=always | bat'
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
