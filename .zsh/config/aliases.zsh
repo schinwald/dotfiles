@@ -55,7 +55,7 @@ alias dfl='df pull'
 alias dfst='df status'
 alias dfsta='df stash push'
 alias dfsw='df switch'
-alias dfb='git branch'
+alias dfb='df branch'
 
 # git
 alias ga='git add'
