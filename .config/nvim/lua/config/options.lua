@@ -60,3 +60,5 @@ vim.opt.fillchars = {
 	diff = "/",
 	eob = " ",
 }
+
+vim.cmd.colorscheme("eldritch")
