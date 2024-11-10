@@ -44,7 +44,7 @@ alias ghc='ghl | xargs gh repo clone'
 alias gha='gh repo create'
 
 # dotfiles
-alias df='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
+alias df='git --git-dir=$DOTFILES --work-tree=$HOME'
 alias dfa='df add'
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
@@ -54,8 +54,8 @@ alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
 alias dfl='df pull'
 alias dfst='df status'
 alias dfsta='df stash push --staged'
-alias dfsw='df switch'
-alias dfb='df branch'
+alias dfsw='df branch --color | fzf --ansi --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"'
+alias dfb='df branch --color | fzf --ansi'
 
 # git
 alias ga='git add'
@@ -67,10 +67,14 @@ alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gl='git pull'
 alias gst='git status'
 alias gsta='git stash push --staged'
-alias gsw='git switch'
-alias gb='git branch'
+alias gsw='git branch --color | fzf --ansi --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"'
+alias gb='git branch --color | fzf --ansi'
 alias gbpa=git_branch_prune_all
 alias gg='git-graph --color=always | bat'
+
+git_switch () {
+  
+}
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
