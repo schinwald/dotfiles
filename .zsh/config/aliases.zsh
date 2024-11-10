@@ -45,7 +45,13 @@ alias gha='gh repo create'
 
 # dotfiles
 alias df='git --git-dir=$DOTFILES --work-tree=$HOME'
-alias dfa='df add'
+alias dfa='git --git-dir=$DOTFILES --work-tree=$HOME status --short | fzf --ansi --exact --header="Git add" --phony \
+  --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME add && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+  --bind "shift-right:reload(git --git-dir=$DOTFILES --work-tree=$HOME add --all && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+  --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME restore --staged && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+  --bind "shift-left:reload(git --git-dir=$DOTFILES --work-tree=$HOME reset > /dev/null && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+  --bind "enter:become(git --git-dir=$DOTFILES --work-tree=$HOME status)"
+'
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
 alias dfc='df commit -v'
@@ -62,7 +68,13 @@ alias dfsw='
 alias dfb='df branch --color | fzf --ansi --exact --header="Git branches"'
 
 # git
-alias ga='git add'
+alias ga='git status --short | fzf --ansi --exact --header="Git add" --phony \
+  --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git add && git status --short)" \
+  --bind "shift-right:reload(git add --all && git status --short)" \
+  --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git restore --staged && git status --short)" \
+  --bind "shift-left:reload(git reset > /dev/null && git status --short)" \
+  --bind "enter:become(git status)"
+'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
