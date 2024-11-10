@@ -14,5 +14,18 @@ return {
 				gitdir = vim.env.GIT_DIR,
 			},
 		},
+		on_attach = function(bufnr)
+			local gitsigns = require("gitsigns")
+
+			local function map(mode, l, r, opts)
+				opts = opts or {}
+				opts.buffer = bufnr
+				vim.keymap.set(mode, l, r, opts)
+			end
+
+			map("n", "<leader>ghp", gitsigns.preview_hunk_inline, { desc = "[H]unk [P]review" })
+			map("n", "<leader>ghr", gitsigns.reset_hunk, { desc = "[H]unk [R]eset" })
+			map("n", "<leader>gB", gitsigns.blame, { desc = "[G]it [B]lame" })
+		end,
 	},
 }
