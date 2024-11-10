@@ -3,6 +3,8 @@
 !.config/
 !.config/**
 .config/graphite
+.config/gh
+.config/configstore
 !.zsh/
 !.zsh/**
 !.zshrc
