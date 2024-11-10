@@ -3,9 +3,6 @@ vim.g.have_nerd_font = true
 -- Decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time (ie. for which-key)
-vim.opt.timeoutlen = 50
-
 -- Sets the indentation
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
