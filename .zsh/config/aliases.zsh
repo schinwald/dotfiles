@@ -54,8 +54,12 @@ alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
 alias dfl='df pull'
 alias dfst='df status'
 alias dfsta='df stash push --staged'
-alias dfsw='df branch --color | fzf --ansi --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"'
-alias dfb='df branch --color | fzf --ansi'
+alias dfsw='
+  df branch --color |
+  fzf --ansi --exact --header="Git branches" --query="$1" \
+    --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
+'
+alias dfb='df branch --color | fzf --ansi --exact --header="Git branches"'
 
 # git
 alias ga='git add'
@@ -67,8 +71,12 @@ alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gl='git pull'
 alias gst='git status'
 alias gsta='git stash push --staged'
-alias gsw='git branch --color | fzf --ansi --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"'
-alias gb='git branch --color | fzf --ansi'
+alias gsw='
+  git branch --color |
+  fzf --ansi --exact --header="Git branches" \
+    --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
+'
+alias gb='git branch --color | fzf --ansi --exact --header="Git branches"'
 alias gbpa=git_branch_prune_all
 alias gg='git-graph --color=always | bat'
 
