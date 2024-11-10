@@ -4,14 +4,20 @@
   <dict>
     <key>Label</key>
     <string>com.schinwald.kanata-tray</string>
+
     <key>EnvironmentVariables</key>
     <dict>
       <key>KANATA_TRAY_CONFIG_DIR</key>
       <string>$HOME/.config/kanata-tray</string>
     </dict>
+
     <key>Program</key>
     <string>/usr/local/bin/kanata-tray</string>
+
     <key>RunAtLoad</key>
+    <true />
+
+    <key>KeepAlive</key>
     <true />
   </dict>
 </plist>
