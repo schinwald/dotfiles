@@ -1,13 +1,9 @@
-return { -- Autocompletion
-	"hrsh7th/nvim-cmp",
-	enabled = function()
-		if vim.g.vscode then
-			return false
-		end
+-- https://github.com/hrsh7th/nvim-cmp
+-- [[ Configure nvim-cmp ]] See `:help nvim-cmp`
 
-		return true
-	end,
-	event = "InsertEnter",
+-- TODO: clean this up more
+return {
+	"hrsh7th/nvim-cmp",
 	dependencies = {
 		-- Snippet Engine & its associated nvim-cmp source
 		{
@@ -34,13 +30,18 @@ return { -- Autocompletion
 			},
 		},
 		"saadparwaiz1/cmp_luasnip",
-
-		-- Adds other completion capabilities.
-		--  nvim-cmp does not ship with all sources by default. They are split
-		--  into multiple repos for maintenance purposes.
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 	},
+	event = "InsertEnter",
+	enabled = function()
+		---@diagnostic disable: undefined-field
+		if vim.g.vscode then
+			return false
+		end
+
+		return true
+	end,
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")

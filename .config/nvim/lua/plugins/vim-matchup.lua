@@ -1,8 +1,10 @@
--- TODO: configure this properly
+-- https://github.com/andymass/vim-matchup
+-- [[ Configure Matchup ]] See `:help matchup`
 
 return {
 	"andymass/vim-matchup",
 	enabled = function()
+		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
 			return false
 		end

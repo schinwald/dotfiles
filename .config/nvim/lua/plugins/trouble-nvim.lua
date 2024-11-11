@@ -1,14 +1,18 @@
+-- https://github.com/folke/trouble.nvim
+-- [[ Configure Trouble ]] See `:help trouble`
+
 return {
 	"folke/trouble.nvim",
+	cmd = "Trouble",
 	enabled = function()
+		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
 			return false
 		end
 
 		return true
 	end,
-	opts = {}, -- for default options, refer to the configuration section for custom setup.
-	cmd = "Trouble",
+  -- stylua: ignore
 	keys = {
 		{
 			"<leader>qd",
@@ -16,4 +20,6 @@ return {
 			desc = "[Q]uickfix [D]iagnostics (Trouble)",
 		},
 	},
+	---@type trouble.Config
+	opts = {},
 }

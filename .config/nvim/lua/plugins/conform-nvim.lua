@@ -1,24 +1,30 @@
-return { -- Autoformat
+-- https://github.com/stevearc/conform.nvim
+-- [[ Configure Conform ]] See `:help conform.nvim`
+
+return {
 	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	enabled = function()
+		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
 			return false
 		end
 
 		return true
 	end,
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
+  -- stylua: ignore
 	keys = {
 		{
+			mode = "n",
 			"<leader>f",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
-			mode = "",
-			desc = "[F]ormat buffer",
+			desc = "[F]ormat buffer (Conform)",
 		},
 	},
+	---@type conform.setupOpts
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)

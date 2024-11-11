@@ -1,15 +1,8 @@
--- Fuzzy finder
+-- https://github.com/nvim-telescope/telescope.nvim
+-- [[ Configure Telescope ]] See `:help telescope`
+
 return {
 	"nvim-telescope/telescope.nvim",
-	enabled = function()
-		if vim.g.vscode then
-			return false
-		end
-
-		return true
-	end,
-	event = "VimEnter",
-	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -30,6 +23,16 @@ return {
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
+	branch = "0.1.x",
+	event = "VimEnter",
+	enabled = function()
+		---@diagnostic disable: undefined-field
+		if vim.g.vscode then
+			return false
+		end
+
+		return true
+	end,
 	config = function()
 		-- Telescope is a fuzzy finder that comes with a lot of different things that
 		-- it can fuzzy find! It's more than just a "file finder", it can search
@@ -74,6 +77,7 @@ return {
 		pcall(require("telescope").load_extension, "ui-select")
 
 		-- See `:help telescope.builtin`
+		-- TODO: find a way to put this in the root
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })

@@ -1,4 +1,7 @@
-return { -- Highlight, edit, and navigate code
+-- https://github.com/nvim-treesitter/nvim-treesitter
+-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
+return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	enabled = function()
@@ -8,6 +11,8 @@ return { -- Highlight, edit, and navigate code
 
 		return true
 	end,
+	---@type TSConfig
+	---@diagnostic disable: missing-fields
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -33,9 +38,8 @@ return { -- Highlight, edit, and navigate code
 		},
 		indent = { enabled = true, disable = { "ruby" } },
 	},
+	---@param opts TSConfig
 	config = function(_, opts)
-		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup(opts)
 

@@ -1,6 +1,10 @@
+-- https://github.com/supermaven/supermaven-nvim
+-- [[ Configure SuperMaven ]] See `:help supermaven`
+
 return {
 	"supermaven-inc/supermaven-nvim",
 	enabled = function()
+		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
 			return false
 		end

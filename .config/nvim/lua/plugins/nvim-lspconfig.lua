@@ -1,6 +1,10 @@
-return { -- LSP Configuration & Plugins
+-- https://github.com/neovim/nvim-lspconfig
+-- [[ Configure nvim-lspconfig ]] See `:help nvim-lspconfig`
+
+return {
 	"neovim/nvim-lspconfig",
 	enabled = function()
+		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
 			return false
 		end
