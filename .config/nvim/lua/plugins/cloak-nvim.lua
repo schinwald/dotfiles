@@ -11,6 +11,14 @@ return {
 
 		return true
 	end,
+	keys = {
+		{
+			mode = { "n" },
+			"<leader>cp",
+			"<cmd>CloakPreviewLine<cr>",
+			desc = "[C]loak [P]review",
+		},
+	},
 	-- Unfortunately types don't exist D:
 	opts = {},
 }
