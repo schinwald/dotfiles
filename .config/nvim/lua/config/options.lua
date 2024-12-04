@@ -58,4 +58,6 @@ vim.opt.fillchars = {
 	eob = " ",
 }
 
-vim.cmd.colorscheme("eldritch")
+if not vim.g.vscode then
+	vim.cmd.colorscheme("eldritch")
+end
