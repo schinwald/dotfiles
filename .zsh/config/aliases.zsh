@@ -45,12 +45,14 @@ alias gha='gh repo create'
 
 # dotfiles
 alias df='git --git-dir=$DOTFILES --work-tree=$HOME'
-alias dfa='git --git-dir=$DOTFILES --work-tree=$HOME status --short | fzf --ansi --exact --header="Git add" --phony \
-  --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME add && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-  --bind "shift-right:reload(git --git-dir=$DOTFILES --work-tree=$HOME add --all && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-  --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME restore --staged && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-  --bind "shift-left:reload(git --git-dir=$DOTFILES --work-tree=$HOME reset > /dev/null && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-  --bind "enter:become(git --git-dir=$DOTFILES --work-tree=$HOME status)"
+alias dfa='
+  git --git-dir=$DOTFILES --work-tree=$HOME status --short |
+  fzf --ansi --exact --header="Git add" --phony \
+    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME add && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+    --bind "shift-right:reload(git --git-dir=$DOTFILES --work-tree=$HOME add --all && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME restore --staged && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+    --bind "shift-left:reload(git --git-dir=$DOTFILES --work-tree=$HOME reset > /dev/null && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
+    --bind "enter:become(git --git-dir=$DOTFILES --work-tree=$HOME status)"
 '
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
@@ -70,16 +72,24 @@ alias dfsw='
   fzf --ansi --exact --header="Git branches" --query="$1" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
 '
-alias dfb='df branch --color | fzf --ansi --exact --header="Git branches"'
-alias dfl='git-graph --color=always --path=$DOTFILES | fzf --ansi --exact --header="Git commits"'
+alias dfb='
+  df branch --color |
+  fzf --ansi --exact --header="Git branches"
+'
+alias dfl='
+  git-graph --color=always --path=$DOTFILES |
+  fzf --ansi --exact --header="Git commits"
+'
 
 # git
-alias ga='git status --short | fzf --ansi --exact --header="Git add" --phony \
-  --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git add && git status --short)" \
-  --bind "shift-right:reload(git add --all && git status --short)" \
-  --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git restore --staged && git status --short)" \
-  --bind "shift-left:reload(git reset > /dev/null && git status --short)" \
-  --bind "enter:become(git status)"
+alias ga='
+  git status --short |
+  fzf --ansi --exact --header="Git add" --phony \
+    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git add && git status --short)" \
+    --bind "shift-right:reload(git add --all && git status --short)" \
+    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git restore --staged && git status --short)" \
+    --bind "shift-left:reload(git reset > /dev/null && git status --short)" \
+    --bind "enter:become(git status)"
 '
 alias gaa='git add --all'
 alias gapa='git add --patch'
@@ -99,13 +109,16 @@ alias gsw='
   fzf --ansi --exact --header="Git branches" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
 '
-alias gb='git branch --color | fzf --ansi --exact --header="Git branches"'
+alias gb='
+  git branch --color |
+  fzf --ansi --exact --header="Git branches"
+'
 alias gbpa=git_branch_prune_all
-alias gl='git-graph --color=always | fzf --ansi --exact --header="Git commits"'
+alias gl='
+  git-graph --color=always |
+  fzf --ansi --exact --header="Git commits"
+'
 
-git_switch () {
-  
-}
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
