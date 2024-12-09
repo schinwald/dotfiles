@@ -55,9 +55,14 @@ alias dfa='git --git-dir=$DOTFILES --work-tree=$HOME status --short | fzf --ansi
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
 alias dfc='df commit -v'
+alias dfco='
+  git-graph --color=always --path=$DOTFILES |
+  fzf --ansi --exact --header="Git checkout" \
+    --bind "enter:become(echo {} | grep -o \"\w\+[^[:space:]]\" | head -1 | xargs git --git-dir=$DOTFILES --work-tree=$HOME checkout)"
+'
 alias dfp='df push'
 alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
-alias dfl='df pull'
+alias dfpl='df pull'
 alias dfst='df status'
 alias dfsta='df stash push --staged'
 alias dfsw='
@@ -66,6 +71,7 @@ alias dfsw='
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
 '
 alias dfb='df branch --color | fzf --ansi --exact --header="Git branches"'
+alias dfl='git-graph --color=always --path=$DOTFILES | fzf --ansi --exact --header="Git commits"'
 
 # git
 alias ga='git status --short | fzf --ansi --exact --header="Git add" --phony \
@@ -78,9 +84,14 @@ alias ga='git status --short | fzf --ansi --exact --header="Git add" --phony \
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
+alias gco='
+  git-graph --color=always |
+  fzf --ansi --exact --header="Git checkout" \
+    --bind "enter:become(echo {} | grep -o \"\w\+[^[:space:]]\" | head -1 | xargs git checkout)"
+'
 alias gp='git push'
 alias gpsu='git push --set-upstream origin $(git branch --show-current)'
-alias gl='git pull'
+alias gpl='git pull'
 alias gst='git status'
 alias gsta='git stash push --staged'
 alias gsw='
@@ -90,7 +101,7 @@ alias gsw='
 '
 alias gb='git branch --color | fzf --ansi --exact --header="Git branches"'
 alias gbpa=git_branch_prune_all
-alias gg='git-graph --color=always | bat'
+alias gl='git-graph --color=always | fzf --ansi --exact --header="Git commits"'
 
 git_switch () {
   
