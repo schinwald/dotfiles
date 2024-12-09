@@ -156,7 +156,7 @@ edit_config () {
 	config_list[ssh]="$HOME/.ssh/config"
 	config_list[zshrc]="$HOME/.zshrc"
 	config_list[zsh]="$HOME/.zsh/"
-	config_list[aliases]="$HOME/.zsh/config/aliases.zsh"
+	config_list[aliases]="$HOME/.zsh/config/aliases/global.zsh"
 	config_list[xprofile]="$HOME/.xprofile"
 	config_list[setup]="$HOME/.setup"
 	config_list[daemons]="$HOME/.daemons"

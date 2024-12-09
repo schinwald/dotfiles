@@ -7,7 +7,7 @@ if [[ ZSH_PROFILE -eq 1 ]]; then
 fi
 
 # Add all configuration files
-for FILE in ~/.zsh/config/*.zsh; do
+for FILE in ~/.zsh/config/**/*.zsh; do
 	source $FILE
 done
 unset FILE
@@ -16,7 +16,7 @@ unset FILE
 [ -f ~/.zsh/defer.zsh ] && source ~/.zsh/defer.zsh
 
 # Add all plugin files using a deferred strategy
-for FILE in ~/.zsh/plugins/*.zsh; do
+for FILE in ~/.zsh/plugins/**/*.zsh; do
 	source $FILE
 done
 unset FILE
