@@ -72,6 +72,9 @@ alias dfsw='
   fzf --ansi --exact --header="Git branches" --query="$1" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
 '
+alias dfr='df restore'
+alias dfrst='df reset --soft'
+alias dfrev='df revert'
 alias dfb='
   df branch --color |
   fzf --ansi --exact --header="Git branches"
@@ -109,6 +112,9 @@ alias gsw='
   fzf --ansi --exact --header="Git branches" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
 '
+alias gr='git restore'
+alias grst='git reset --soft'
+alias grev='git revert'
 alias gb='
   git branch --color |
   fzf --ansi --exact --header="Git branches"
