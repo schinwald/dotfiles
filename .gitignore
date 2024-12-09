@@ -5,6 +5,7 @@
 .config/graphite
 .config/gh
 .config/configstore
+.config/gcloud
 !.zsh/
 !.zsh/**
 !.zshrc
