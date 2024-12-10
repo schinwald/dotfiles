@@ -5,10 +5,10 @@ export DOTFILES="$HOME/.dotfiles"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
   # Alias for nvim
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 export VISUAL="$EDITOR"
