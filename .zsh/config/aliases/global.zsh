@@ -38,6 +38,7 @@ alias dcd='docker-compose down'
 # | GIT ALIASES |
 # ===============
 # gh cli
+alias ghp='open https://github.com/schinwald'
 alias ghl='gh repo list | cut -f1 | fzf'
 alias ghb='ghl | xargs gh browse --repo'
 alias ghc='ghl | xargs gh repo clone'
