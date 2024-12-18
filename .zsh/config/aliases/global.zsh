@@ -67,14 +67,31 @@ alias dfp='df push'
 alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
 alias dfpl='df pull'
 alias dfst='df status'
-alias dfsta='df stash push --staged'
+alias dfstl='
+  df stash list |
+  fzf --ansi --exact --header="Git stash list" \
+'
+alias dfstp='df stash push --staged'
+alias dfstpp='
+  df stash list |
+  fzf --ansi --exact --header="Git stash pop" \
+    --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME stash pop)"
+'
+alias dfsta='
+  df stash list |
+  fzf --ansi --exact --header="Git stash apply" \
+    --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME stash apply)"
+'
 alias dfsw='
   df branch --color |
   fzf --ansi --exact --header="Git branches" --query="$1" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
 '
-alias dfr='df restore'
-alias dfrst='df reset --soft'
+alias dfr='df reset'
+alias dfrs='df reset --soft'
+alias dfrm='df reset --mixed'
+alias dfrh='df reset --hard'
+alias dfrst='df restore'
 alias dfrev='df revert'
 alias dfb='
   df branch --color |
@@ -107,19 +124,37 @@ alias gp='git push'
 alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gpl='git pull'
 alias gst='git status'
-alias gsta='git stash push --staged'
+alias gstl='
+  git stash list |
+  fzf --ansi --exact --header="Git stash list" \
+'
+alias gstp='git stash push --staged'
+alias gstpp='
+  git stash list |
+  fzf --ansi --exact --header="Git stash pop" \
+    --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git stash pop)"
+'
+alias gsta='
+  git stash list |
+  fzf --ansi --exact --header="Git stash apply" \
+    --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git stash apply)"
+'
 alias gsw='
   git branch --color |
   fzf --ansi --exact --header="Git branches" \
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
 '
-alias gr='git restore'
-alias grst='git reset --soft'
+alias gr='git reset'
+alias grs='git reset --soft'
+alias grm='git reset --mixed'
+alias grh='git reset --hard'
+alias grst='git restore'
 alias grev='git revert'
 alias gb='
   git branch --color |
   fzf --ansi --exact --header="Git branches"
 '
+alias gds='git diff --cached'
 alias gbpa=git_branch_prune_all
 alias gl='
   git-graph --color=always |
