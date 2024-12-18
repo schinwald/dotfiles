@@ -5,12 +5,13 @@ $docker_context\
 $rust\
 $nodejs\
 $python\
+$lua\
+$golang\
 $package\
 $fill\
 $cmd_duration $jobs $time\
 $line_break\
 $directory\
-$docker_context\
 $git_branch\
 $git_state\
 $git_status\
@@ -44,7 +45,7 @@ symbol = " "
 [directory]
 format = "📁 [$path]($style)[$read_only]($read_only_style) "
 style = "blue"
-read_only = " "
+read_only = " 🔒"
 truncation_length = 4
 truncate_to_repo = false
 
@@ -54,15 +55,15 @@ error_symbol = "[❯](red)"
 vicmd_symbol = "[❮](green)"
 
 [git_branch]
-symbol = " "
 format = "[$symbol$branch]($style) "
+symbol = " "
 style = "bright-black"
 
 [jobs]
+format = "[$symbol]($style)"
 symbol = ""
 style = "bold red"
 number_threshold = 1
-format = "[$symbol]($style)"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -83,21 +84,29 @@ style = "yellow"
 symbol = " "
 
 [time]
+format = "[$time]($style)"
 disabled = false
 style = "bold white"
-format = "[$time]($style)"
 
 [docker_context]
-format = 'via [🐋 $context](blue bold) '
+format = '[$symbol ($context)](blue bold) '
+symbol = '🐋'
 
 [rust]
 symbol = " "
 
 [nodejs]
-format = "[$symbol($version )]($style)"
+format = "[$symbol($version)]($style) "
+
+[lua]
+format = '[$symbol($version)]($style) '
+
+[golang]
+format = '[$symbol($version)]($style) '
 
 [python]
-symbol = '👾 '
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = '🐍'
 pyenv_version_name = true
 
 [package]
