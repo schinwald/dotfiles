@@ -1,5 +1,6 @@
 *
 !.gitignore
+!.hushlogin
 !.config/
 !.config/**
 .config/graphite
