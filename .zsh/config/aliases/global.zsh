@@ -72,6 +72,7 @@ alias dfstl='
   fzf --ansi --exact --header="Git stash list" \
 '
 alias dfstp='df stash push --staged'
+alias dfstpa='dfaa && df stash push --staged'
 alias dfstpp='
   df stash list |
   fzf --ansi --exact --header="Git stash pop" \
@@ -129,6 +130,7 @@ alias gstl='
   fzf --ansi --exact --header="Git stash list" \
 '
 alias gstp='git stash push --staged'
+alias gstpa='gaa && git stash push --staged'
 alias gstpp='
   git stash list |
   fzf --ansi --exact --header="Git stash pop" \
