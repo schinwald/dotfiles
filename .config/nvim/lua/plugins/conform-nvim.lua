@@ -45,7 +45,10 @@ return {
 			-- You can use a sub-list to tell conform to run *until* a formatter
 			-- is found.
 			-- javascript = { { "prettierd", "prettier" } },
+			javascript = { "biome-check" },
+			javascriptreact = { "biome-check" },
 			typescript = { "biome-check" },
+			typescriptreact = { "biome-check" },
 		},
 	},
 }
