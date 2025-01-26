@@ -98,6 +98,7 @@ alias dfb='
   df branch --color |
   fzf --ansi --exact --header="Git branches"
 '
+alias dfds='df diff --cached'
 alias dfl='
   git-graph --color=always --path=$DOTFILES |
   fzf --ansi --exact --header="Git commits"
