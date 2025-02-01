@@ -164,6 +164,19 @@ alias gl='
   fzf --ansi --exact --header="Git commits"
 '
 
+# +-------------------------------+ 
+# | GOOGLE CLOUD PLATFORM ALIASES | 
+# =================================
+alias gcpl='gcloud container clusters list | fzf --exact --header="GCP cluser" --header-lines=1'
+alias gcpsw=gcp_switch_cluster
+
+# +--------------------+
+# | KUBERNETES ALIASES |
+# ======================
+alias k='kubectl'
+alias kpl='k get pods | fzf --exact --header="Kubernetes pods" --header-lines=1'
+alias krl='k get replicasets | fzf --exact --header="Kubernetes replicasets" --header-lines=1'
+alias kdl='k get deployments | fzf --exact --header="Kubernetes deployments" --header-lines=1'
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
@@ -185,6 +198,7 @@ edit_config () {
 	config_list[rofi]="$HOME/.config/rofi/config.rasi"
 	config_list[redshift]="$HOME/.config/redshift/redshift.conf"
 	config_list[kitty]="$HOME/.config/kitty/kitty.conf"
+	config_list[ghostty]="$HOME/.config/ghostty"
 	config_list[nvim]="$HOME/.config/nvim/"
 	config_list[starship]="$HOME/.config/starship/starship.toml"
 	config_list[flameshot]="$HOME/.config/flameshot/flameshot.ini"
@@ -239,5 +253,12 @@ git_branch_prune_all () {
 	git pull &> /dev/null
 	git fetch --prune &> /dev/null
 	git branch -vv | grep gone | sed -e s/\*//g | awk "{ print \$1 }" | xargs git branch -d 2> /dev/null
+}
+
+gcp_switch_cluster () {
+  clusters=$(gcloud container clusters list)
+  echo "$clusters" |
+   fzf --ansi --exact --header="GCP switch cluser" --header-lines=1 \
+     --bind "enter:become(echo {} | cut -d \" \" -f 1 | xargs gcloud container clusters get-credentials)"
 }
 
