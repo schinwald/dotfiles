@@ -177,6 +177,7 @@ alias k='kubectl'
 alias kpl='k get pods | fzf --exact --header="Kubernetes pods" --header-lines=1'
 alias krl='k get replicasets | fzf --exact --header="Kubernetes replicasets" --header-lines=1'
 alias kdl='k get deployments | fzf --exact --header="Kubernetes deployments" --header-lines=1'
+alias knl='k get namespaces | fzf --exact --header="Kubernetes namespaces" --header-lines=1'
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
