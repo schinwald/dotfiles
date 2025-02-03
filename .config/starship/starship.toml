@@ -1,6 +1,7 @@
 format = """
 $username\
 $hostname\
+$kubernetes\
 $docker_context\
 $rust\
 $nodejs\
@@ -87,6 +88,15 @@ symbol = " "
 format = "[$time]($style)"
 disabled = false
 style = "bold white"
+
+[kubernetes]
+format = '[⛵ $context]($style) '
+disabled = false
+contexts = [
+  { style = "green", context_pattern = ".*nautical-services-dev", context_alias = "nautical-services-dev" },
+  { style = "yellow", context_pattern = ".*nautical-services-stg", context_alias = "nautical-services-stg" },
+  { style = "red", context_pattern = ".*nautical-services-prod", context_alias = "nautical-services-prod" },
+]
 
 [docker_context]
 format = '[$symbol ($context)](blue bold) '
