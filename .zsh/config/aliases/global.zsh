@@ -164,6 +164,13 @@ alias gl='
   fzf --ansi --exact --header="Git commits"
 '
 
+# +--------------+ 
+# | TMUX ALIASES | 
+# ================
+alias tl='tmux ls | fzf --ansi --exact --header="TMUX sessions"'
+alias ta=tmux_switch_session
+alias td='tmux detach'
+
 # +-------------------------------+ 
 # | GOOGLE CLOUD PLATFORM ALIASES | 
 # =================================
@@ -263,3 +270,15 @@ gcp_switch_cluster () {
      --bind "enter:become(echo {} | cut -d \" \" -f 1 | xargs gcloud container clusters get-credentials)"
 }
 
+tmux_switch_session () {
+  session=$(\
+    tmux ls |
+    fzf --exact --header="Choose a tmux session" \
+      --bind "enter:become(echo {} | cut -d \" \" -f 1)"
+  )
+  if [[ -z "$TMUX" ]]; then
+    tmux attach -t $session
+  else
+    tmux switch -t $session
+  fi
+}
