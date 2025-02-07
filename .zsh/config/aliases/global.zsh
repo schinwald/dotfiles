@@ -11,6 +11,7 @@ alias star_wars='nc towel.blinkenlights.nl 23'
 # ===================
 alias cf=edit_config
 alias src='source ~/.zshrc'
+alias c='clear'
 alias ls='lsd'
 alias la='ls -a'
 alias lla='ls -la'
@@ -221,6 +222,7 @@ edit_config () {
 	config_list[xprofile]="$HOME/.xprofile"
 	config_list[setup]="$HOME/.setup"
 	config_list[daemons]="$HOME/.daemons"
+	config_list[tmux]="$HOME/.tmux.conf"
 
 	config_keys=`for key in "${(@k)config_list}"; do; echo $key; done`
 
@@ -273,7 +275,7 @@ gcp_switch_cluster () {
 tmux_switch_session () {
   session=$(\
     tmux ls |
-    fzf --exact --header="Choose a tmux session" \
+    fzf --exact --header="Choose a tmux session" --border none \
       --bind "enter:become(echo {} | cut -d \" \" -f 1)"
   )
   if [[ -z "$TMUX" ]]; then
