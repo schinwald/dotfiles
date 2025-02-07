@@ -25,6 +25,14 @@ return {
 			end,
 			desc = "Diffview Toggle",
 		},
+		{
+			mode = "n",
+			"<leader>dfh",
+			function()
+        vim.api.nvim_command("DiffviewFileHistory %")
+			end,
+			desc = "Diffview File History",
+		},
 	},
 	---@param opts DiffviewConfig
 	config = function(opts)
