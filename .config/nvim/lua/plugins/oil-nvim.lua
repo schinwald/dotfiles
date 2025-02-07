@@ -28,6 +28,9 @@ return {
 	---@diagnostic disable: missing-fields
 	opts = {
 		default_file_explorer = true,
+		win_options = {
+			signcolumn = "yes",
+		},
 		view_options = {
 			show_hidden = true,
 		},
