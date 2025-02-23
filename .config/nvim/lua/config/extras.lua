@@ -13,14 +13,8 @@ vim.fn.use_default_git = function()
 		if code ~= 0 then
 			vim.env.GIT_DIR = vim.env.DOTFILES
 			vim.env.GIT_WORK_TREE = vim.env.HOME
-			print("git")
 		end
 	end
-end
-
-vim.fn.hi = function(group, opts)
-	opts = opts or {}
-	vim.api.nvim_set_hl(0, group, opts)
 end
 
 ---Get the parent node of the given type
