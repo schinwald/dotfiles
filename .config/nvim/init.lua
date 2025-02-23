@@ -21,11 +21,14 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("utils.string")
+
 -- Install plugins
 require("lazy").setup("plugins", {})
 
--- Load config files
-require("config.keymaps")
+-- Load config files that are dependent on plugins
 require("config.options")
+require("config.colors")
+require("config.keymaps")
 require("config.autocmds")
 require("config.extras")

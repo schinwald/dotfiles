@@ -52,12 +52,11 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Hide tabline
+vim.opt.showtabline = 0
+
 -- Remove ~ from end of file
 vim.opt.fillchars = {
-	diff = "/",
+	diff = "╱",
 	eob = " ",
 }
-
-if not vim.g.vscode then
-	vim.cmd.colorscheme("eldritch")
-end
