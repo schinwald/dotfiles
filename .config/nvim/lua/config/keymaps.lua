@@ -2,7 +2,7 @@
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move fokus to the upper window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Allows moving hunks of code up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move hunk down" })
@@ -18,3 +18,14 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Go to previous search result" })
 
 -- Persist cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join line below" })
+
+-- Quiting in different contexts
+vim.api.nvim_create_user_command("Quit", function()
+	if require("diffview.lib").get_current_view() then
+		vim.cmd("DiffviewClose")
+	else
+		vim.cmd("q")
+	end
+end, {})
+
+vim.cmd("cnoreabbrev q Quit")
