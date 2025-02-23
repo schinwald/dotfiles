@@ -3,6 +3,9 @@
 
 return {
 	"sindrets/diffview.nvim",
+	dependencies = {
+		"folke/snacks.nvim",
+	},
 	enabled = function()
 		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
@@ -17,38 +20,71 @@ return {
 			mode = "n",
 			"<leader>dv",
 			function()
-				if vim.g.is_diffview_open then
-					vim.api.nvim_command("DiffviewClose")
-				else
-					vim.api.nvim_command("DiffviewOpen")
-				end
+        if require("diffview.lib").get_current_view() then
+          vim.notify("Already in diff view", vim.log.levels.ERROR)
+        else
+          vim.api.nvim_command("DiffviewOpen")
+        end
 			end,
 			desc = "Diffview Toggle",
 		},
 		{
 			mode = "n",
-			"<leader>dfh",
+			"<leader>fh",
 			function()
-        vim.api.nvim_command("DiffviewFileHistory %")
+        if require("diffview.lib").get_current_view() then
+          vim.notify("Already in file history", vim.log.levels.ERROR)
+        else
+          vim.api.nvim_command("DiffviewFileHistory %")
+        end
 			end,
 			desc = "Diffview File History",
 		},
+		{
+			mode = "n",
+			"<leader>dc",
+			function()
+        if require("diffview.lib").get_current_view() then
+          vim.api.nvim_command("DiffviewClose")
+        else
+          vim.notify("No diff view is open", vim.log.levels.ERROR)
+        end
+			end,
+			desc = "Diffview Toggle",
+		},
 	},
-	---@param opts DiffviewConfig
-	config = function(opts)
-		local diffview = require("diffview")
-		diffview.setup(opts)
+	---@diagnostic disable: missing-fields
+	---@type DiffviewConfig
+	opts = {
+		view = {
+			default = {
+				layout = "diff2_horizontal",
+			},
+			merge_tool = {
+				layout = "diff3_mixed",
+			},
+		},
+		hooks = {
+			diff_buf_win_enter = function(bufnr, winid, ctx)
+				if ctx.layout_name:match("^diff2") then
+					if ctx.symbol == "a" then
+						vim.opt_local.winhl = table.concat({
+							"DiffDelete:DiffDeleteOurs",
+							"DiffAdd:DiffAddOurs",
+						}, ",")
+					elseif ctx.symbol == "b" then
+						vim.opt_local.winhl = table.concat({
+							"DiffDelete:DiffDeleteTheirs",
+							"DiffAdd:DiffAddTheirs",
+						}, ",")
+					end
+				end
 
-		-- Override the default DiffviewOpen command with some additional logic
-		vim.api.nvim_create_user_command("DiffviewOpen", function()
-			vim.g["is_diffview_open"] = true
-			diffview.open({})
-		end, { nargs = "?" })
-
-		-- Override the default DiffviewClose command with some additional logic
-		vim.api.nvim_create_user_command("DiffviewClose", function()
-			vim.g["is_diffview_open"] = false
-			diffview.close()
-		end, { nargs = "?" })
-	end,
+				-- Hide underline on cursorline
+				-- https://github.com/neovim/neovim/issues/9800
+				vim.wo[winid].culopt = "number"
+			end,
+		},
+	},
+	config = true,
 }
