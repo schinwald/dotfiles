@@ -1,0 +1,21 @@
+name: nautical-api
+root: ~/Projects/nautical-api
+
+attach: false
+
+windows:
+  - editor:
+      panes:
+        - v
+  - api:
+      panges:
+        - echo "hi"
+  - db:
+      panges:
+        - echo "hi"
+  - redis:
+      panges:
+        - echo "hi"
+  - workers:
+      panges:
+        - alias

@@ -1,0 +1,12 @@
+name: dashboard
+root: ~/Projects/dashboard
+
+attach: false
+
+windows:
+  - editor:
+      panes:
+        - v
+  - server:
+      panges:
+        - echo "hi"

@@ -1,0 +1,12 @@
+name: checkout
+root: ~/projects/checkout
+
+attach: false
+
+windows:
+  - editor:
+      panes:
+        - v
+  - server:
+      panges:
+        - yd
