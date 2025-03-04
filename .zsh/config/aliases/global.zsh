@@ -173,6 +173,9 @@ alias ta=tmux_switch_session
 alias td='tmux detach'
 alias tc='tmux new-session -s'
 alias tk='tmux kill-server'
+alias tps='
+  tmuxinator list | tail -1 | tr -s " " | tr " " "\n" | xargs -n 1 tmuxinator start
+'
 
 # +-------------------------------+ 
 # | GOOGLE CLOUD PLATFORM ALIASES | 
@@ -225,6 +228,7 @@ edit_config () {
 	config_list[setup]="$HOME/.setup"
 	config_list[daemons]="$HOME/.daemons"
 	config_list[tmux]="$HOME/.config/tmux/tmux.conf"
+	config_list[tmuxinator]="$HOME/.config/tmuxinator"
 
 	config_keys=`for key in "${(@k)config_list}"; do; echo $key; done`
 
