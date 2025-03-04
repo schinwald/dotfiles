@@ -34,3 +34,6 @@ unset FILE
 if [[ ZSH_PROFILE -eq 1 ]]; then
   zprof
 fi
+
+# Stops C-d from exiting
+setopt IGNORE_EOF
