@@ -59,6 +59,7 @@ alias dfa='
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
 alias dfc='df commit -v'
+alias dfca='df commit --amend'
 alias dfco='
   git-graph --color=always --path=$DOTFILES |
   fzf --ansi --exact --header="Git checkout" \
@@ -118,6 +119,7 @@ alias ga='
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
+alias gca='git commit --amend'
 alias gco='
   git-graph --color=always |
   fzf --ansi --exact --header="Git checkout" \
