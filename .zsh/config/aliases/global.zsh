@@ -292,3 +292,12 @@ tmux_switch_session () {
     tmux switch -t $session
   fi
 }
+
+if [[ ! -v "$TMUX" ]]; then
+  session=$(tmux display-message -p '#S')
+  FILE=~/.config/tmuxinator/$session.zsh
+  if [[ -f $FILE ]]; then
+    source $FILE
+  fi
+  unset FILE
+fi
