@@ -8,5 +8,8 @@ windows:
       panes:
         - v
   - server:
-      panges:
+      panes:
         - yd
+  - ladle:
+      panes:
+      - yarn ladle:dev
