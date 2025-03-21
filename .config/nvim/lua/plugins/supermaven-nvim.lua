@@ -19,7 +19,7 @@ return {
 			ignore_filetypes = { cpp = true },
 			color = {
 				-- TODO: update colors to be more subtle
-				-- suggestion_color = "#ffffff",
+				-- suggestion_color = "#41486b",
 				-- cterm = 244,
 			},
 			log_level = "off",
