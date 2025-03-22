@@ -28,11 +28,21 @@ return {
 	---@diagnostic disable: missing-fields
 	opts = {
 		default_file_explorer = true,
+		delete_to_trash = true,
 		win_options = {
 			signcolumn = "yes",
 		},
 		view_options = {
 			show_hidden = true,
+		},
+		keymaps = {
+			["<C-s>"] = false,
+			["<C-h>"] = false,
+			["<C-t>"] = false,
+			["<C-l>"] = false,
+			["<C-p>"] = false,
+			["gp"] = "actions.preview",
+			["gt"] = { "actions.toggle_trash", mode = "n" },
 		},
 	},
 }
