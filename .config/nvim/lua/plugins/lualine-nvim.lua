@@ -13,8 +13,17 @@ return {
 		return true
 	end,
 	-- Unfortunately types don't exist D:
-	config = function(opt)
+	config = function()
 		-- TODO: figure out why I need to call setup explicitly
-		require("lualine").setup(opt)
+		require("lualine").setup({
+			sections = {
+				lualine_c = {
+					{
+						"filename",
+						path = 3,
+					},
+				},
+			},
+		})
 	end,
 }
