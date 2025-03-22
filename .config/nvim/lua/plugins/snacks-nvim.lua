@@ -1,6 +1,6 @@
 return {
 	"folke/snacks.nvim",
-	priority = 1000,
+	priority = 900,
 	lazy = false,
 	enabled = function()
 		---@diagnostic disable: undefined-field
@@ -14,5 +14,6 @@ return {
 		bigfile = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
+		image = { enabled = true },
 	},
 }

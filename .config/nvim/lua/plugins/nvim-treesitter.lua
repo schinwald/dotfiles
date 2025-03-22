@@ -26,6 +26,12 @@ return {
 			"query",
 			"vim",
 			"vimdoc",
+			"latex",
+			"norg",
+			"scss",
+			"svelte",
+			"typst",
+			"vue",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
