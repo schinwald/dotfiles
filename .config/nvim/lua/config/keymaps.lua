@@ -16,6 +16,8 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "Join line below" })
 vim.keymap.set("n", "<leader>mo", "<cmd>MoveOpen<cr>", { desc = "[M]ove [o]pen" })
 vim.keymap.set("n", "<leader>mc", "<cmd>MoveClose<cr>", { desc = "[M]ove [c]lose" })
 
+vim.keymap.set("n", "<leader>z", "<cmd>Zoxide<cr>", { desc = "[Z]oxide" })
+
 -- Quiting in different contexts
 vim.api.nvim_create_user_command("Quit", function()
 	if require("diffview.lib").get_current_view() then
