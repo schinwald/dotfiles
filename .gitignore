@@ -7,6 +7,8 @@
 .config/gh
 .config/configstore
 .config/gcloud
+.config/raycast
+.config/yarn
 !.zsh/
 !.zsh/**
 !.zshrc
