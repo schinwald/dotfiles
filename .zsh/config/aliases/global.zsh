@@ -171,7 +171,7 @@ alias gl='
 # | TMUX ALIASES | 
 # ================
 alias tl='tmux ls | fzf --ansi --exact --header="TMUX sessions"'
-alias ta=tmux_switch_session
+alias ta='~/.config/tmux/utils/switch_session.sh'
 alias td='tmux detach'
 alias tc='tmux new-session -s'
 alias tk='tmux kill-server'
@@ -278,19 +278,6 @@ gcp_switch_cluster () {
   echo "$clusters" |
    fzf --ansi --exact --header="GCP switch cluser" --header-lines=1 \
      --bind "enter:become(echo {} | cut -d \" \" -f 1 | xargs gcloud container clusters get-credentials)"
-}
-
-tmux_switch_session () {
-  session=$(\
-    tmux ls |
-    fzf --exact --header="Choose a tmux session" --border none \
-      --bind "enter:become(echo {} | cut -d \" \" -f 1)"
-  )
-  if [[ -z "$TMUX" ]]; then
-    tmux attach -t $session
-  else
-    tmux switch -t $session
-  fi
 }
 
 if [[ ! -v "$TMUX" ]]; then
