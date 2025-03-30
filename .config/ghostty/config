@@ -2,7 +2,7 @@
 theme = eldritch
 window-padding-x = 15
 window-padding-y = 15
-background-opacity = 0.8
+# background-opacity = 0.8
 background-blur-radius = 8
 macos-titlebar-style = hidden
 
@@ -11,8 +11,8 @@ macos-titlebar-style = hidden
 # custom-shader = shaders/animated-gradient-shader.glsl
 # custom-shader = shaders/bettercrt.glsl
 # custom-shader = shaders/bloom-025.glsl
-# custom-shader = shaders/bloom-050.glsl
-custom-shader = shaders/bloom-075.glsl
+custom-shader = shaders/bloom-050.glsl
+# custom-shader = shaders/bloom-075.glsl
 # custom-shader = shaders/bloom-100.glsl
 # custom-shader = shaders/crt.glsl
 # custom-shader = shaders/cubes.glsl
