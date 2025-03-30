@@ -13,10 +13,15 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Go to previous search result" })
 -- Persist cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join line below" })
 
+-- Interact with files/folders
 vim.keymap.set("n", "<leader>mo", "<cmd>MoveOpen<cr>", { desc = "[M]ove [o]pen" })
 vim.keymap.set("n", "<leader>mc", "<cmd>MoveClose<cr>", { desc = "[M]ove [c]lose" })
 
+-- Open a directory in the current window using Zoxide and Oil
 vim.keymap.set("n", "<leader>z", "<cmd>Zoxide<cr>", { desc = "[Z]oxide" })
+
+-- View file's abstract syntax tree
+vim.keymap.set("n", "<leader>ast", "<cmd>InspectTree<cr>", { desc = "[A]bstract [s]yntax [t]ree" })
 
 -- Quiting in different contexts
 vim.api.nvim_create_user_command("Quit", function()
