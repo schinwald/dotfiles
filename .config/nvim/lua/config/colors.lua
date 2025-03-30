@@ -25,8 +25,8 @@ local function interpolate_colors(label, source, destination, steps)
 		blue = bit.band(destination_hex, 0x0000ff),
 	}
 
-	for i = 0, steps do
-		local t = (i + 1) / (steps + 1)
+	for i = 1, steps + 1 do
+		local t = i / (steps + 1)
 		local interpolated_rgb = {
 			red = bit.band(math.floor(source_rgb.red * (1 - t) + destination_rgb.red * t), 0xff0000),
 			green = bit.band(math.floor(source_rgb.green * (1 - t) + destination_rgb.green * t), 0x00ff00),
@@ -80,7 +80,7 @@ local function generate_colors()
 	}
 
 	for theme_key, theme_value in pairs(theme) do
-		local gradient = interpolate_colors(theme_key, "#171928", theme_value, 17)
+		local gradient = interpolate_colors(theme_key, "#212337", theme_value, 17)
 		for gradient_key, gradient_value in pairs(gradient) do
 			colors[gradient_key] = gradient_value
 		end
@@ -98,7 +98,7 @@ vim.cmd(f("highlight SignColumn guibg=none"))
 vim.cmd(f("highlight VertSplit guibg=none"))
 vim.cmd(f("highlight StatusLine guibg=none"))
 vim.cmd(f("highlight StatusLineNC guibg=none"))
-vim.cmd(f("highlight Folded guibg=none"))
+vim.cmd(f("highlight Folded guibg={colors.white_50} guifg={colors.white_600}"))
 
 -- TODO: fix this
 vim.cmd(f("highlight Float ctermbg=none"))
@@ -110,19 +110,23 @@ vim.cmd(f("highlight TelescopePromptNormal ctermbg=none"))
 vim.cmd(f("highlight TelescopePromptBorder ctermbg=none"))
 vim.cmd(f("highlight TelescopeResultsNormal ctermbg=none"))
 vim.cmd(f("highlight TelescopeResultsBorder ctermbg=none"))
-vim.cmd(f("highlight Folded guibg=none"))
 
 -- Diff colors
 vim.cmd(f("highlight DiffDeleteOurs guifg={colors.gray_100} guibg=none"))
 vim.cmd(f("highlight DiffDeleteTheirs guifg={colors.gray_100} guibg=none"))
-vim.cmd(f("highlight Folded guibg=none"))
+vim.cmd(f("highlight DiffDelete guifg=none guibg={colors.red_100}"))
 
-vim.cmd(f("highlight DiffAddOurs guifg=none guibg={colors.red_150}"))
-vim.cmd(f("highlight DiffAddTheirs guifg=none guibg={colors.green_150}"))
-vim.cmd(f("highlight DiffAdd guifg=none guibg={colors.green_150}"))
+vim.cmd(f("highlight DiffAddOurs guifg=none guibg={colors.red_100}"))
+vim.cmd(f("highlight DiffAddTheirs guifg=none guibg={colors.green_100}"))
+vim.cmd(f("highlight DiffAdd guifg=none guibg={colors.green_100}"))
 
-vim.cmd(f("highlight DiffChange guibg={colors.blue_150}"))
-vim.cmd(f("highlight DiffText guibg={colors.blue_400} guifg=none"))
+vim.cmd(f("highlight DiffChangeOurs guifg=none guibg={colors.red_100}"))
+vim.cmd(f("highlight DiffChangeTheirs guifg=none guibg={colors.green_100}"))
+vim.cmd(f("highlight DiffChange guibg={colors.blue_100}"))
+
+vim.cmd(f("highlight DiffTextOurs guibg={colors.red_300} guifg=none"))
+vim.cmd(f("highlight DiffTextTheirs guibg={colors.green_300} guifg=none"))
+vim.cmd(f("highlight DiffText guibg={colors.blue_300} guifg=none"))
 
 -- Diffview fix linking
 vim.cmd(f("highlight! link DiffviewDiffText DiffText"))

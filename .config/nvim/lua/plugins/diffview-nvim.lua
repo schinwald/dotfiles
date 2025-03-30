@@ -66,16 +66,22 @@ return {
 		},
 		hooks = {
 			diff_buf_win_enter = function(bufnr, winid, ctx)
+				local colors = require("config.colors")
+				local f = string.interpolate
 				if ctx.layout_name:match("^diff2") then
 					if ctx.symbol == "a" then
 						vim.opt_local.winhl = table.concat({
 							"DiffDelete:DiffDeleteOurs",
 							"DiffAdd:DiffAddOurs",
+							"DiffChange:DiffChangeOurs",
+							"DiffText:DiffTextOurs",
 						}, ",")
 					elseif ctx.symbol == "b" then
 						vim.opt_local.winhl = table.concat({
 							"DiffDelete:DiffDeleteTheirs",
 							"DiffAdd:DiffAddTheirs",
+							"DiffChange:DiffChangeTheirs",
+							"DiffText:DiffTextTheirs",
 						}, ",")
 					end
 				end
