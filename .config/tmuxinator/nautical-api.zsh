@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-NAUTICAL_API_PATH="~/Projects/nautical-api"
+NAUTICAL_API_PATH="$HOME/Projects/nautical-api"
 alias nauticalexecute='$NAUTICAL_API_PATH/nauticalexecute'
 alias gcloudmain='cloud-sql-proxy --run-connection-test -p 5433 nautical-commerce:us-central1:nautical-dev-shared-us'
 alias tests=runtests
