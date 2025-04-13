@@ -13,6 +13,11 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Go to previous search result" })
 -- Persist cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join line below" })
 
+-- Open diagnostics in a floating window
+vim.keymap.set("n", "<leader>e", function()
+	vim.diagnostic.open_float()
+end)
+
 -- Interact with files/folders
 vim.keymap.set("n", "<leader>mo", "<cmd>MoveOpen<cr>", { desc = "[M]ove [o]pen" })
 vim.keymap.set("n", "<leader>mc", "<cmd>MoveClose<cr>", { desc = "[M]ove [c]lose" })
@@ -22,6 +27,16 @@ vim.keymap.set("n", "<leader>z", "<cmd>Zoxide<cr>", { desc = "[Z]oxide" })
 
 -- View file's abstract syntax tree
 vim.keymap.set("n", "<leader>ast", "<cmd>InspectTree<cr>", { desc = "[A]bstract [s]yntax [t]ree" })
+
+-- Use to toggle inline diagnostics
+vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
+	local enabled = vim.diagnostic.config().virtual_text
+	if enabled then
+		vim.diagnostic.config({ virtual_text = false })
+	else
+		vim.diagnostic.config({ virtual_text = true })
+	end
+end, {})
 
 -- Quiting in different contexts
 vim.api.nvim_create_user_command("Quit", function()

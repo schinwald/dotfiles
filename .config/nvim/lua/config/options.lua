@@ -60,3 +60,8 @@ vim.opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
+
+-- Enables diagnostic virtual text
+vim.diagnostic.config({
+	virtual_text = true,
+})
