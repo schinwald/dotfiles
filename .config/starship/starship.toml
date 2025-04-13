@@ -53,7 +53,7 @@ truncate_to_repo = false
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
@@ -91,7 +91,7 @@ style = "bold white"
 
 [kubernetes]
 format = '[⛵ $context]($style) '
-disabled = false
+disabled = true
 contexts = [
   { style = "green", context_pattern = ".*nautical-services-dev", context_alias = "nautical-services-dev" },
   { style = "yellow", context_pattern = ".*nautical-services-stg", context_alias = "nautical-services-stg" },
