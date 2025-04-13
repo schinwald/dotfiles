@@ -38,17 +38,18 @@ return {
 			}
 		end,
 		formatters_by_ft = {
-			lua = { "stylua" },
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--
 			-- You can use a sub-list to tell conform to run *until* a formatter
 			-- is found.
 			-- javascript = { { "prettierd", "prettier" } },
+			lua = { "stylua" },
 			javascript = { "biome-check" },
 			javascriptreact = { "biome-check" },
 			typescript = { "biome-check" },
 			typescriptreact = { "biome-check" },
+			python = { "ruff_fix", "ruff_format" },
 		},
 	},
 }
