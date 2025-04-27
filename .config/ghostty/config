@@ -5,6 +5,7 @@ window-padding-y = 15
 # background-opacity = 0.8
 background-blur-radius = 8
 macos-titlebar-style = hidden
+cursor-style = block
 
 # Some shaders can be found in this repo, they're usually uploaded to discord
 # https://github.com/hackrmomo/ghostty-shaders
