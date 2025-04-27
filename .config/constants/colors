@@ -1,0 +1,51 @@
+#!/bin/zsh
+
+# Modifiers
+echo "\x1b[1;37mbold\x1b[0m"
+echo "\x1b[2;37mfaint\x1b[0m"
+echo "\x1b[3;37mitalic\x1b[0m"
+echo "\x1b[4;37munderline\x1b[0m"
+echo "\x1b[5;37mslow blink\x1b[0m"
+echo "\x1b[7;37minverse\x1b[0m"
+echo "\x1b[8;37mhidden\x1b[0m <-- hidden"
+echo "\x1b[9;37mstrikethrough\x1b[0m"
+
+# Foreground
+echo "\x1b[1;47m\x1b[1;30mblack\x1b[0m"
+echo "\x1b[1;40m\x1b[1;31mred\x1b[0m"
+echo "\x1b[1;40m\x1b[1;32mgreen\x1b[0m"
+echo "\x1b[1;40m\x1b[1;33myellow\x1b[0m"
+echo "\x1b[1;40m\x1b[1;34mpurple\x1b[0m"
+echo "\x1b[1;40m\x1b[1;35mmagenta\x1b[0m"
+echo "\x1b[1;40m\x1b[1;36mcyan\x1b[0m"
+echo "\x1b[1;40m\x1b[1;37mwhite\x1b[0m"
+
+# Background
+echo "\x1b[1;37m\x1b[1;40mblack\x1b[0m"
+echo "\x1b[1;30m\x1b[1;41mred\x1b[0m"
+echo "\x1b[1;30m\x1b[1;42mgreen\x1b[0m"
+echo "\x1b[1;30m\x1b[1;43myellow\x1b[0m"
+echo "\x1b[1;30m\x1b[1;44mpurple\x1b[0m"
+echo "\x1b[1;30m\x1b[1;45mmagenta\x1b[0m"
+echo "\x1b[1;30m\x1b[1;46mcyan\x1b[0m"
+echo "\x1b[1;30m\x1b[1;47mwhite\x1b[0m"
+
+# Foreground (brighter)
+echo "\x1b[1;40m\x1b[1;90mbright black\x1b[0m"
+echo "\x1b[1;40m\x1b[1;91mbright red\x1b[0m"
+echo "\x1b[1;40m\x1b[1;92mbright green\x1b[0m"
+echo "\x1b[1;40m\x1b[1;93mbright yellow\x1b[0m"
+echo "\x1b[1;40m\x1b[1;94mbright purple\x1b[0m"
+echo "\x1b[1;40m\x1b[1;95mbright magenta\x1b[0m"
+echo "\x1b[1;40m\x1b[1;96mbright cyan\x1b[0m"
+echo "\x1b[1;40m\x1b[1;97mbright white\x1b[0m"
+
+# Background (brighter)
+echo "\x1b[1;30m\x1b[1;100mbright black\x1b[0m"
+echo "\x1b[1;30m\x1b[1;101mbright red\x1b[0m"
+echo "\x1b[1;30m\x1b[1;102mbright green\x1b[0m"
+echo "\x1b[1;30m\x1b[1;103mbright yellow\x1b[0m"
+echo "\x1b[1;30m\x1b[1;104mbright purple\x1b[0m"
+echo "\x1b[1;30m\x1b[1;105mbright magenta\x1b[0m"
+echo "\x1b[1;30m\x1b[1;106mbright cyan\x1b[0m"
+echo "\x1b[1;30m\x1b[1;107mbright white\x1b[0m"
