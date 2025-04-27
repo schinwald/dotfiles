@@ -30,8 +30,8 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+-- Keep signcolumn on by default with 2 columns
+vim.opt.signcolumn = "yes:2"
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
