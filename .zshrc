@@ -15,14 +15,12 @@ unset FILE
 # Allows queued (deferred) commands to not block startup
 [ -f ~/.zsh/defer.zsh ] && source ~/.zsh/defer.zsh
 
-wrap_with_zsh_defer() {
-  for cmd in "$@"; do
-    eval "${cmd}() { zsh-defer command ${cmd} \"\$@\"; }"
-  done
-}
-
 # Overrides all completion functions so that they are deferred
-wrap_with_zsh_defer compinit compdef compaudit
+autoload -U compinit
+zsh-defer compinit
+zsh-defer compdef
+zsh-defer compaudit
+zsh-defer compdump
 
 # Add all plugin files using a deferred strategy
 for FILE in ~/.zsh/plugins/**/*.zsh; do
