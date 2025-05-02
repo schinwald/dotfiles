@@ -1,1 +1,1 @@
-eval "$(kubectl completion zsh)"
+zsh-defer eval "$(kubectl completion zsh)"

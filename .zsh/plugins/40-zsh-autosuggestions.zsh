@@ -1,4 +1,4 @@
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Accepts the auto suggestion inside of ghostty
 bindkey '^[[121;6u' end-of-line
