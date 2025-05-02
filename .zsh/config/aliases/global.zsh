@@ -288,3 +288,13 @@ if [[ ! -v "$TMUX" ]]; then
   fi
   unset FILE
 fi
+
+envs () {
+  if [[ -z $1 ]]; then
+    echo "Usage: envs <env name>"
+  fi
+
+  set -a  # Automatically export all variables
+  source "$1"
+  set +a
+}
