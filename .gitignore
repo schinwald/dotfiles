@@ -9,7 +9,9 @@
 .config/gcloud
 .config/raycast
 .config/yarn
+.config/fish
 .config/btop/*.log
+.config/posthog-cli
 !.zsh/
 !.zsh/**
 !.zshrc
