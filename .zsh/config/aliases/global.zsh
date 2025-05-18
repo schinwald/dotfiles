@@ -232,6 +232,7 @@ edit_config () {
 	config_list[btop]="$HOME/.config/btop/btop.conf"
 	config_list[tmux]="$HOME/.config/tmux/tmux.conf"
 	config_list[tmuxinator]="$HOME/.config/tmuxinator"
+	config_list[gitignore]="$HOME/.gitignore"
 
 	config_keys=`for key in "${(@k)config_list}"; do; echo $key; done`
 
