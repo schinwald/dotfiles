@@ -229,6 +229,7 @@ edit_config () {
 	config_list[xprofile]="$HOME/.xprofile"
 	config_list[setup]="$HOME/.setup"
 	config_list[daemons]="$HOME/.daemons"
+	config_list[btop]="$HOME/.config/btop/btop.conf"
 	config_list[tmux]="$HOME/.config/tmux/tmux.conf"
 	config_list[tmuxinator]="$HOME/.config/tmuxinator"
 

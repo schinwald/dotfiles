@@ -9,6 +9,7 @@
 .config/gcloud
 .config/raycast
 .config/yarn
+.config/btop/*.log
 !.zsh/
 !.zsh/**
 !.zshrc
