@@ -50,6 +50,7 @@ return {
 			typescript = { "biome-check" },
 			typescriptreact = { "biome-check" },
 			python = { "ruff_fix", "ruff_format" },
+			markdown = { "prettierd" },
 		},
 	},
 }
