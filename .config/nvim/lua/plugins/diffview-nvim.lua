@@ -61,13 +61,11 @@ return {
 				layout = "diff2_horizontal",
 			},
 			merge_tool = {
-				layout = "diff3_mixed",
+				layout = "diff1_plain",
 			},
 		},
 		hooks = {
 			diff_buf_win_enter = function(bufnr, winid, ctx)
-				local colors = require("config.colors")
-				local f = string.interpolate
 				if ctx.layout_name:match("^diff2") then
 					if ctx.symbol == "a" then
 						vim.opt_local.winhl = table.concat({

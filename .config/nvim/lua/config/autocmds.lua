@@ -44,7 +44,7 @@ local function clean_conflict_markers()
 
 		if matches_ours then
 			local text = " OURS "
-			local padding = string.rep(" ", math.max(0, width - #text))
+			local padding = string.rep(" ", math.max(0, width - #text - #matches_ours))
 			table.insert(highlight_lines, {
 				i - 1,
 				{
@@ -54,7 +54,7 @@ local function clean_conflict_markers()
 			})
 		elseif matches_theirs then
 			local text = " THEIRS "
-			local padding = string.rep(" ", math.max(0, width - #text))
+			local padding = string.rep(" ", math.max(0, width - #text - #matches_theirs))
 			table.insert(highlight_lines, {
 				i - 1,
 				{
