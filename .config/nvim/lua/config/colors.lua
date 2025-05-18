@@ -60,6 +60,7 @@ local function generate_colors()
 		red = "#f16c75",
 		bright_red = "#f0313e",
 		white = "#ffffff",
+		black = "#000000",
 	}
 
 	local colors = {
@@ -114,7 +115,7 @@ vim.cmd(f("highlight TelescopeResultsBorder ctermbg=none"))
 -- Diff colors
 vim.cmd(f("highlight DiffDeleteOurs guifg={colors.gray_100} guibg=none"))
 vim.cmd(f("highlight DiffDeleteTheirs guifg={colors.gray_100} guibg=none"))
-vim.cmd(f("highlight DiffDelete guifg=none guibg={colors.red_100}"))
+vim.cmd(f("highlight DiffDelete guifg={colors.gray_100} guibg=none"))
 
 vim.cmd(f("highlight DiffAddOurs guifg=none guibg={colors.red_100}"))
 vim.cmd(f("highlight DiffAddTheirs guifg=none guibg={colors.green_100}"))
@@ -127,6 +128,14 @@ vim.cmd(f("highlight DiffChange guibg={colors.blue_100}"))
 vim.cmd(f("highlight DiffTextOurs guibg={colors.red_300} guifg=none"))
 vim.cmd(f("highlight DiffTextTheirs guibg={colors.green_300} guifg=none"))
 vim.cmd(f("highlight DiffText guibg={colors.blue_300} guifg=none"))
+
+vim.cmd(f("highlight ConflictOursLabel guibg={colors.orange_600} guifg={colors.black_900} gui=bold,italic"))
+vim.cmd(f("highlight ConflictOursContent guibg={colors.orange_600} guifg={colors.black_300}"))
+
+vim.cmd(f("highlight ConflictTheirsLabel guibg={colors.orange_600} guifg={colors.black_900} gui=bold,italic"))
+vim.cmd(f("highlight ConflictTheirsContent guibg={colors.orange_600} guifg={colors.black_300}"))
+
+vim.cmd(f("highlight ConflictEnd guibg=none guifg={colors.orange_600} gui=bold"))
 
 -- Diffview fix linking
 vim.cmd(f("highlight! link DiffviewDiffText DiffText"))
