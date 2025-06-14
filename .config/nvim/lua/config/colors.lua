@@ -115,7 +115,7 @@ vim.cmd(f("highlight TelescopeResultsBorder ctermbg=none"))
 -- Diff colors
 vim.cmd(f("highlight DiffDeleteOurs guifg={colors.gray_100} guibg=none"))
 vim.cmd(f("highlight DiffDeleteTheirs guifg={colors.gray_100} guibg=none"))
-vim.cmd(f("highlight DiffDelete guifg={colors.gray_100} guibg=none"))
+vim.cmd(f("highlight DiffDelete guifg=none guibg={colors.red_100}"))
 
 vim.cmd(f("highlight DiffAddOurs guifg=none guibg={colors.red_100}"))
 vim.cmd(f("highlight DiffAddTheirs guifg=none guibg={colors.green_100}"))
@@ -139,3 +139,8 @@ vim.cmd(f("highlight ConflictEnd guibg=none guifg={colors.orange_600} gui=bold")
 
 -- Diffview fix linking
 vim.cmd(f("highlight! link DiffviewDiffText DiffText"))
+
+-- Gitsigns fix linking
+vim.cmd(f("highlight! link GitSignsDeleteInline DiffTextOurs"))
+vim.cmd(f("highlight! link GitSignsAddInline DiffTextTheirs"))
+vim.cmd(f("highlight! link GitSignsChangeInline DiffTextTheirs"))
