@@ -57,6 +57,7 @@ vim.opt.showtabline = 0
 
 -- Remove ~ from end of file
 vim.opt.fillchars = {
+	fold = " ",
 	diff = "╱",
 	eob = " ",
 }
@@ -65,3 +66,10 @@ vim.opt.fillchars = {
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
+vim.o.foldtext = "v:lua.custom_fold_text()"
+
+function _G.custom_fold_text()
+	local lines = vim.v.foldend - vim.v.foldstart + 1
+	return "󰞖  " .. lines .. " LINES HIDDEN"
+end
