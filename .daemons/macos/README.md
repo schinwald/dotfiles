@@ -45,3 +45,5 @@ Bootstrap the plist to run it on startup.
 ```bash
 sudo launchctl bootstrap system /Library/LaunchDaemons/com.schinwald.kanata.plist
 ```
+
+You might have to specifically allow the executable kanata the permission for input monitoring (if you didn't get this GUI popup guiding you to do so already). To do this go to `Settings > Privacy & Security > Input Monitoring`, and click the + icon, navigate to the place your kanata executable is (should match the same path in the \*.plist above, ~/.cargo/bin/kanata), and add it.
