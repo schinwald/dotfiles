@@ -1,3 +1,8 @@
+(defcfg
+  concurrent-tap-hold yes
+  rapid-event-delay 2
+)
+
 ;; ===================================================================================================
 ;; The source definition (this is what the keyboard actually looks like)
 ;; ===================================================================================================
@@ -19,7 +24,7 @@
       @sys   f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12
       `      1      2      3      4      5      6      7      8      9      0      -      =      bspc
       tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
-      esc    a      s      d      f      g      h      j      k      l      ;      '      ret
+      esc    @a     @s     @d     @f     g      h      @j     @k     @l     @;     '      ret
       lsft   z      x      c      v      b      n      m      ,      .      /      rsft
       lctl   fn     lalt   @ldn                 spc                  @lup   ralt   rctl
 )
@@ -76,4 +81,20 @@
   ;; Curly Brackets
   lcrl S-[
   rcrl S-]
+)
+
+(defvar
+  tap-time 0
+  hold-time 200
+)
+
+(defalias
+  a (tap-hold $tap-time $hold-time a lctl)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lmet)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j rsft)
+  k (tap-hold $tap-time $hold-time k rmet)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rctl)
 )
