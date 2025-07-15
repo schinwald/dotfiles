@@ -21,18 +21,40 @@ alias rm='rm -rfi'
 alias cp='cp -ri'
 alias v=nvim_open
 alias pu=port_used
+alias envs=source_environment_file
 alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
+alias colors='
+  cat $HOME/.config/constants/colors/main |
+  fzf --ansi --exact --header-lines=1 \
+  --bind "enter:become(echo {} | sed \"s/ \{1,\}/@/g\" | cut -d \"@\" -f 3 | sed \"s/\x1b/\\\\\\\\u001b/g\" | tr -d \"\n\" | pbcopy)"
+'
+
+copy () {
+  pbcopy "$@"
+}
+
+double_quote () {
+  if [ "$#" -gt 0 ]; then
+    for arg in "$@"; do
+      echo "\"$arg\""
+    done
+  else
+    while IFS= read -r line; do
+      echo "\"$line\""
+    done
+  fi
+}
 
 # +----------------+
 # | DOCKER ALIASES |
 # ==================
-alias dcl='docker container list | fzf --multi --exact --header-lines=1'
+alias dcl=docker_container_list
 alias dcr='dcl | tr -s "  " | cut -d " " -f 1 | xargs docker container restart'
 alias dce='dcl | sed -e "s/ \{2,\}/@/g" | cut -d "@" -f 7 | xargs -I {} docker container exec -t {}'
 alias dcs='dcl | tr -s "  " | cut -d " " -f 1 | xargs docker container stop'
-alias dclg='dcl | sed "s/  /@/g" | tr -s "@" | cut -d "@" -f 7 | xargs docker logs --follow'
+alias dclg=docker_container_log
 alias dnk='docker container list --quiet > /dev/null | xargs docker container stop; docker system prune --all --volumes --force && docker volume prune --all --force'
-alias dcu='docker-compose up --build -d'
+alias dcu='docker-compose up --build --detach'
 alias dcd='docker-compose down'
 
 # +-------------+
@@ -47,14 +69,15 @@ alias gha='gh repo create'
 
 # dotfiles
 alias df='git --git-dir=$DOTFILES --work-tree=$HOME'
+alias dfd=dotfiles_diff
 alias dfa='
-  git --git-dir=$DOTFILES --work-tree=$HOME status --short |
-  fzf --ansi --exact --header="Git add" --phony \
-    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME add && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-    --bind "shift-right:reload(git --git-dir=$DOTFILES --work-tree=$HOME add --all && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME restore --staged && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-    --bind "shift-left:reload(git --git-dir=$DOTFILES --work-tree=$HOME reset > /dev/null && git --git-dir=$DOTFILES --work-tree=$HOME status --short)" \
-    --bind "enter:become(git --git-dir=$DOTFILES --work-tree=$HOME status)"
+  git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all |
+  fzf --ansi --exact --header="Git add" \
+    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME add && git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all)" \
+    --bind "shift-right:reload(git --git-dir=$DOTFILES --work-tree=$HOME add --all && git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all)" \
+    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME restore --staged && git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all)" \
+    --bind "shift-left:reload(git --git-dir=$DOTFILES --work-tree=$HOME reset > /dev/null && git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all)" \
+    --bind "enter:become(git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all)"
 '
 alias dfaa='df add --all'
 alias dfapa='df add --patch'
@@ -68,7 +91,7 @@ alias dfco='
 alias dfp='df push'
 alias dfpsu='git push --set-upstream origin $(git branch --show-current)'
 alias dfpl='df pull'
-alias dfst='df status'
+alias dfst='df status --untracked-files=all'
 alias dfstl='
   df stash list |
   fzf --ansi --exact --header="Git stash list" \
@@ -108,14 +131,15 @@ alias dfl='
 
 # git
 alias ga='
-  git status --short |
+  git status --short --untracked-files=all |
   fzf --ansi --exact --header="Git add" --phony \
-    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git add && git status --short)" \
-    --bind "shift-right:reload(git add --all && git status --short)" \
-    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git restore --staged && git status --short)" \
-    --bind "shift-left:reload(git reset > /dev/null && git status --short)" \
-    --bind "enter:become(git status)"
+    --bind "right:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git add && git status --short --untracked-files=all)" \
+    --bind "shift-right:reload(git add --all && git status --short --untracked-files=all)" \
+    --bind "left:reload(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git restore --staged && git status --short --untracked-files=all)" \
+    --bind "shift-left:reload(git reset > /dev/null && git status --short --untracked-files=all)" \
+    --bind "enter:become(git status --short --untracked-files=all)"
 '
+alias gd=diff
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
@@ -128,7 +152,7 @@ alias gco='
 alias gp='git push'
 alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gpl='git pull'
-alias gst='git status'
+alias gst='git status --untracked-files=all'
 alias gstl='
   git stash list |
   fzf --ansi --exact --header="Git stash list" \
@@ -189,10 +213,11 @@ alias gcpsw=gcp_switch_cluster
 # | KUBERNETES ALIASES |
 # ======================
 alias k='kubectl'
-alias kpl='k get pods | fzf --exact --header="Kubernetes pods" --header-lines=1'
-alias krl='k get replicasets | fzf --exact --header="Kubernetes replicasets" --header-lines=1'
-alias kdl='k get deployments | fzf --exact --header="Kubernetes deployments" --header-lines=1'
-alias knl='k get namespaces | fzf --exact --header="Kubernetes namespaces" --header-lines=1'
+alias kgp='k get pods | fzf --exact --header="Kubernetes pods" --header-lines=1'
+alias kgr='k get replicasets | fzf --exact --header="Kubernetes replicasets" --header-lines=1'
+alias kgd='k get deployments | fzf --exact --header="Kubernetes deployments" --header-lines=1'
+alias kgn='k get namespaces | fzf --exact --header="Kubernetes namespaces" --header-lines=1'
+alias ksw='k config get-contexts | fzf --exact --header="Kubernetes contexts" --header-lines=1'
 
 # +------------------------+
 # | KITTY TERMINAL ALIASES |
@@ -222,6 +247,7 @@ edit_config () {
 	config_list[jankyborders]="$HOME/.config/borders/bordersrc"
 	config_list[kanata]="$HOME/.config/kanata"
 	config_list[kanata-tray]="$HOME/.config/kanata-tray"
+	config_list[gitignore]="$HOME/.config/mise"
 	config_list[ssh]="$HOME/.ssh/config"
 	config_list[zshrc]="$HOME/.zshrc"
 	config_list[zsh]="$HOME/.zsh/"
@@ -263,9 +289,24 @@ nvim_open () {
   nvim -c "cd $DIRECTORY" $@
 }
 
+diff () {
+  nvim -c "DiffviewOpen" $@
+}
+
+dotfiles_diff () {
+  nvim --cmd "cd ~" -c "DiffviewOpen" $@
+}
+
 port_used () {
-  sudo netstat -anpe | grep -P "[[:space:]]$1[[:space:]]" | grep "LISTEN"
-  # sudo lsof -i :$1
+  PORT=$(lsof -i :$1)
+
+  if [[ -z $PORT ]]; then
+    echo "Port $1 not used"
+    return 0
+  fi
+
+  echo "$PORT" |
+    fzf --ansi --exact --header="Port used" --header-lines=1
 }
 
 git_branch_prune_all () {
@@ -278,25 +319,39 @@ git_branch_prune_all () {
 gcp_switch_cluster () {
   clusters=$(gcloud container clusters list)
   echo "$clusters" |
-   fzf --ansi --exact --header="GCP switch cluser" --header-lines=1 \
-     --bind "enter:become(echo {} | cut -d \" \" -f 1 | xargs gcloud container clusters get-credentials)"
+    fzf --ansi --exact --header="GCP switch cluser" --header-lines=1 \
+      --bind "enter:become(echo {} | cut -d \" \" -f 1 | xargs gcloud container clusters get-credentials)"
 }
 
+source_environment_file () {
+  set -a
+  source "$1"
+  set +a
+}
+
+docker_container_list () {
+  containers=$(docker container list)
+  echo "$containers" |
+    fzf --ansi --exact --header="Docker containers" --header-lines=1 --query="$1"
+}
+
+docker_container_log () {
+  containers=$(docker container list)
+  selected=$(echo "$containers" | fzf --ansi --exact --header="Docker containers" --header-lines=1 --query="$1" --select-1)
+  if [[ -z $selected ]]; then
+    return 0
+  fi
+  echo "$selected" | sed "s/  /@/g" | tr -s "@" | cut -d "@" -f 7 | xargs docker logs --follow
+}
+
+# Run tmuxinator scripts (must be at the end)
 if [[ ! -v "$TMUX" ]]; then
-  session=$(tmux display-message -p '#S')
-  FILE=~/.config/tmuxinator/$session.zsh
+  TMUX_SESSION=$(tmux display-message -p '#S')
+  TMUX_WINDOW=$(tmux display-message -p '#W')
+  TMUX_PANE=$(tmux display-message -p '#P')
+  FILE=~/.config/tmuxinator/$TMUX_SESSION.zsh
   if [[ -f $FILE ]]; then
     source $FILE
   fi
   unset FILE
 fi
-
-envs () {
-  if [[ -z $1 ]]; then
-    echo "Usage: envs <env name>"
-  fi
-
-  set -a  # Automatically export all variables
-  source "$1"
-  set +a
-}
