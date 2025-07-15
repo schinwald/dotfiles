@@ -6,7 +6,9 @@ attach: false
 windows:
   - editor:
       panes:
-        - v
+        - main:
+          - v
   - server:
-      panges:
-        - npm run dev
+      panes:
+        - main:
+          - yd

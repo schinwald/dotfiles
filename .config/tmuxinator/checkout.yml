@@ -6,10 +6,15 @@ attach: false
 windows:
   - editor:
       panes:
-        - v
+        - main:
+          - v
   - server:
       panes:
-        - yd
+        - main:
+          - eval "$(mise activate)"
+          - yd
   - ladle:
       panes:
-      - yarn ladle:dev
+        - main:
+          - eval "$(mise activate)"
+          - yarn ladle:dev

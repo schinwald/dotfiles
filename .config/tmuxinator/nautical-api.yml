@@ -3,19 +3,27 @@ root: ~/Projects/nautical-api
 
 attach: false
 
+on_project_start: git fetch --all
+startup_window: editor
+
 windows:
   - editor:
       panes:
-        - v
+        - main:
+          - v
   - api:
-      panges:
-        - echo "hi"
+      panes:
+        - main:
+          - dclg api-api
   - db:
-      panges:
-        - echo "hi"
+      panes:
+        - main:
+          - dclg db
   - redis:
-      panges:
-        - echo "hi"
+      panes:
+        - main:
+          - dclg redis
   - workers:
-      panges:
-        - alias
+      panes:
+        - main:
+          - dclg worker

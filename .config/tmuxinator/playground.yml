@@ -6,4 +6,5 @@ attach: false
 windows:
   - main:
       panes:
-        - echo "hi"
+        - main:
+          - clear

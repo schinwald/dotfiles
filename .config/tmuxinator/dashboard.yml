@@ -6,7 +6,10 @@ attach: false
 windows:
   - editor:
       panes:
-        - v
+        - main:
+          - v
   - server:
-      panges:
-        - echo "hi"
+      panes:
+        - main:
+          - eval "$(mise activate)"
+          - yd
