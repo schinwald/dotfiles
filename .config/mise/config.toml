@@ -1,5 +1,11 @@
 [tools]
 act = "latest"
+grpcurl = "latest"
+helmfile = "latest"
 poetry = "latest"
 python = "3.13.2"
+ruby = "latest"
 usage = "latest"
+xh = "latest"
+yj = "latest"
+yq = "latest"
