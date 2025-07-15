@@ -1,0 +1,16 @@
+[project]
+name = "colors"
+version = "0.1.0"
+description = "Display terminal colors and styles with their unicode, octal, and hex codes"
+authors = [
+  { name = "James Schinwald", email = "james.schinwald@nauticalcommerce.com" },
+]
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = ["wcwidth (>=0.2.13,<0.3.0)"]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+

@@ -1,0 +1,41 @@
+Name            Example         Escaped        Category    
+bold            [1;37mbold[0m            \u001b[1;37m   effect      
+faint           [2;37mfaint[0m           \u001b[2;37m   effect      
+italic          [3;37mitalic[0m          \u001b[3;37m   effect      
+underline       [4;37munderline[0m       \u001b[4;37m   effect      
+slow blink      [5;37mslow blink[0m      \u001b[5;37m   effect      
+inverse         [7;37minverse[0m         \u001b[7;37m   effect      
+hidden          [8;37mhidden[0m          \u001b[8;37m   effect      
+strikethrough   [9;37mstrikethrough[0m   \u001b[9;37m   effect      
+black           [1;47m[1;30mblack[0m           \u001b[1;30m   foreground  
+red             [1;40m[1;31mred[0m             \u001b[1;31m   foreground  
+green           [1;40m[1;32mgreen[0m           \u001b[1;32m   foreground  
+yellow          [1;40m[1;33myellow[0m          \u001b[1;33m   foreground  
+purple          [1;40m[1;34mpurple[0m          \u001b[1;34m   foreground  
+magenta         [1;40m[1;35mmagenta[0m         \u001b[1;35m   foreground  
+cyan            [1;40m[1;36mcyan[0m            \u001b[1;36m   foreground  
+white           [1;40m[1;37mwhite[0m           \u001b[1;37m   foreground  
+black           [1;37m[1;40mblack[0m           \u001b[1;40m   background  
+red             [1;30m[1;41mred[0m             \u001b[1;41m   background  
+green           [1;30m[1;42mgreen[0m           \u001b[1;42m   background  
+yellow          [1;30m[1;43myellow[0m          \u001b[1;43m   background  
+purple          [1;30m[1;44mpurple[0m          \u001b[1;44m   background  
+magenta         [1;30m[1;45mmagenta[0m         \u001b[1;45m   background  
+cyan            [1;30m[1;46mcyan[0m            \u001b[1;46m   background  
+white           [1;30m[1;47mwhite[0m           \u001b[1;47m   background  
+bright black    [1;40m[1;90mbright black[0m    \u001b[1;90m   foreground  
+bright red      [1;40m[1;91mbright red[0m      \u001b[1;91m   foreground  
+bright green    [1;40m[1;92mbright green[0m    \u001b[1;92m   foreground  
+bright yellow   [1;40m[1;93mbright yellow[0m   \u001b[1;93m   foreground  
+bright purple   [1;40m[1;94mbright purple[0m   \u001b[1;94m   foreground  
+bright magenta  [1;40m[1;95mbright magenta[0m  \u001b[1;95m   foreground  
+bright cyan     [1;40m[1;96mbright cyan[0m     \u001b[1;96m   foreground  
+bright white    [1;40m[1;97mbright white[0m    \u001b[1;97m   foreground  
+bright black    [1;30m[1;100mbright black[0m    \u001b[1;100m  background  
+bright red      [1;30m[1;101mbright red[0m      \u001b[1;101m  background  
+bright green    [1;30m[1;102mbright green[0m    \u001b[1;102m  background  
+bright yellow   [1;30m[1;103mbright yellow[0m   \u001b[1;103m  background  
+bright purple   [1;30m[1;104mbright purple[0m   \u001b[1;104m  background  
+bright magenta  [1;30m[1;105mbright magenta[0m  \u001b[1;105m  background  
+bright cyan     [1;30m[1;106mbright cyan[0m     \u001b[1;106m  background  
+bright white    [1;30m[1;107mbright white[0m    \u001b[1;107m  background  
