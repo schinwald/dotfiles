@@ -12,6 +12,7 @@
 .config/fish
 .config/btop/*.log
 .config/posthog-cli
+.config/qBittorrent
 !.zsh/
 !.zsh/**
 !.zshrc
