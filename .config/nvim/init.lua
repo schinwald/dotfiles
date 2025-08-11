@@ -21,7 +21,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("utils.general")
+require("utils.vim")
 require("utils.string")
 require("utils.table")
 
