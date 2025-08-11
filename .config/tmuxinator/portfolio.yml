@@ -11,4 +11,8 @@ windows:
   - server:
       panes:
         - main:
-          - yd
+          - pnpm dev
+  - database:
+      panes:
+        - main:
+          - psql portfolio
