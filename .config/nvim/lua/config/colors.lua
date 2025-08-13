@@ -139,6 +139,8 @@ vim.cmd(f("highlight ConflictEnd guibg=none guifg={colors.orange_600} gui=bold")
 
 vim.cmd(f("highlight Folded guibg={colors.blue_600} guifg=none gui=bold"))
 
+vim.cmd(f("highlight NormalFloat guibg={colors.bg_dark} guifg=none"))
+
 -- Diffview fix linking
 vim.cmd(f("highlight! link DiffviewDiffText DiffText"))
 
