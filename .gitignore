@@ -13,8 +13,10 @@
 .config/btop/*.log
 .config/posthog-cli
 .config/qBittorrent
+.config/karabiner
 !.zsh/
 !.zsh/**
+.zsh/external/*.zsh
 !.zshrc
 !.setup/
 !.setup/**
