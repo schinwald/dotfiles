@@ -6,6 +6,8 @@ if [[ ZSH_PROFILE -eq 1 ]]; then
   zmodload zsh/zprof
 fi
 
+PATH=$PATH:$HOME/.local/bin
+
 # Add all configuration files
 for FILE in ~/.zsh/config/**/*.zsh; do
 	source $FILE
