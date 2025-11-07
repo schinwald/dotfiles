@@ -5,11 +5,16 @@ grpcurl = "latest"
 helmfile = "latest"
 lua = "latest"
 node = "latest"
+pnpm = "latest"
 poetry = "latest"
 python = "3.13.2"
 ruby = "latest"
 rust = "latest"
 usage = "latest"
+uv = "latest"
 xh = "latest"
 yj = "latest"
 yq = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
