@@ -1,0 +1,14 @@
+name: dsa
+root: ~/projects/dsa
+
+attach: false
+
+windows:
+  - editor:
+      panes:
+        - main:
+          - v
+  - testing:
+      panes:
+        - main:
+          - clear

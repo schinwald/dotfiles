@@ -1,5 +1,5 @@
-name: portfolio
-root: ~/projects/schinwald.github.io
+name: globe trottr
+root: ~/projects/world-wide-wonders
 
 attach: false
 
@@ -8,11 +8,11 @@ windows:
       panes:
         - main:
           - v
-  - server:
+  - frontend:
       panes:
         - main:
-          - pnpm dev
-  - database:
+          - cd frontend
+  - backend:
       panes:
         - main:
-          - psql portfolio
+          - cd backend

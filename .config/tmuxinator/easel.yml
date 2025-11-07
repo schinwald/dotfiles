@@ -1,0 +1,14 @@
+name: easel
+root: ~/projects/easel
+
+attach: false
+
+windows:
+  - editor:
+      panes:
+        - main:
+          - v
+  - testing:
+      panes:
+        - main:
+          - uv run pytest .
