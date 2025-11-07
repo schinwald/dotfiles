@@ -28,7 +28,11 @@ return {
 	},
 	---@type snacks.Config
 	opts = {
-		bigfile = { enabled = true },
+		bigfile = {
+			enabled = true,
+			notify = true,
+			size = vim.g.bigfile_threshold,
+		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		image = { enabled = true },

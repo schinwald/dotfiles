@@ -24,6 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 require("utils.vim")
 require("utils.string")
 require("utils.table")
+require("utils.bigfile")
 
 -- Install plugins
 require("lazy").setup("plugins", {})

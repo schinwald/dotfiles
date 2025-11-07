@@ -30,5 +30,16 @@ return {
 				return false
 			end,
 		})
+
+		---@diagnostic disable: undefined-field
+		vim.fn.handle_bigfile({
+			name = "supermaven-nvim",
+			on_open = function()
+				require("supermaven-nvim.api").stop()
+			end,
+			on_close = function()
+				require("supermaven-nvim.api").start()
+			end,
+		})
 	end,
 }
