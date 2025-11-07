@@ -25,7 +25,9 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("auto-git", { clear = true }),
 	callback = function()
-		vim.fn.use_default_git()
+		pcall(function()
+			vim.fn.use_default_git()
+		end)
 	end,
 })
 
@@ -83,7 +85,7 @@ local function clean_conflict_markers()
 	end
 end
 
--- Autocmd: Apply on files with merge conflict markers
+-- Apply on files with merge conflict markers
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
