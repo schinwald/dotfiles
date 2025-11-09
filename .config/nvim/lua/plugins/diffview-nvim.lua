@@ -26,11 +26,11 @@ return {
           vim.api.nvim_command("DiffviewOpen")
         end
 			end,
-			desc = "Diffview Toggle",
+			desc = "[D]iff[v]iew Open",
 		},
 		{
 			mode = "n",
-			"<leader>fh",
+			"<leader>gfh",
 			function()
         if require("diffview.lib").get_current_view() then
           vim.notify("Already in file history", vim.log.levels.ERROR)
@@ -38,7 +38,7 @@ return {
           vim.api.nvim_command("DiffviewFileHistory %")
         end
 			end,
-			desc = "Diffview File History",
+			desc = "[G]it [F]ile [H]istory",
 		},
 		{
 			mode = "n",
@@ -50,7 +50,7 @@ return {
           vim.notify("No diff view is open", vim.log.levels.ERROR)
         end
 			end,
-			desc = "Diffview Toggle",
+			desc = "[D]iffview [C]lose",
 		},
 	},
 	---@diagnostic disable: missing-fields
