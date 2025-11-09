@@ -32,6 +32,7 @@ return {
 			-- TODO: move keys to root of this config (must still follow on_attach)
 			map("n", "<leader>ghp", gitsigns.preview_hunk_inline, { desc = "[H]unk [P]review" })
 			map("n", "<leader>ghr", gitsigns.reset_hunk, { desc = "[H]unk [R]eset" })
+			map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "[H]unk [S]tage/Unstage" })
 			map("n", "<leader>gB", gitsigns.blame, { desc = "[G]it [B]lame" })
 		end,
 	},
