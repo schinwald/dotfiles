@@ -12,7 +12,9 @@ windows:
       panes:
         - main:
           - cd frontend
+          - pnpm dev
   - backend:
       panes:
         - main:
           - cd backend
+          - pnpm dev
