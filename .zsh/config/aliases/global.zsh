@@ -280,8 +280,13 @@ edit_config () {
 nvim_open () {
   DIRECTORY=""
 
+  # Check if argument exists
   if [[ -z $1 ]]; then
     DIRECTORY=`pwd`
+  # Check if argument is a directory
+  elif [[ -d $1 ]]; then
+    DIRECTORY=$1
+  # Otherwise extract directory from path
   else
     DIRECTORY=`dirname $@[$#]`
   fi
