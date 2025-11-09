@@ -225,12 +225,6 @@ alias kgd='k get deployments | fzf --exact --header="Kubernetes deployments" --h
 alias kgn='k get namespaces | fzf --exact --header="Kubernetes namespaces" --header-lines=1'
 alias ksw='k config get-contexts | fzf --exact --header="Kubernetes contexts" --header-lines=1'
 
-# +------------------------+
-# | KITTY TERMINAL ALIASES |
-# ==========================
-alias ssh='kitty +kitten ssh'
-alias icat='kitty +kitten icat'
-
 # +------------------+
 # | HELPER FUNCTIONS |
 # ====================
