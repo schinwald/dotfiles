@@ -151,6 +151,7 @@ alias gco='
     --bind "enter:become(echo {} | grep -o \"\w\+[^[:space:]]\" | head -1 | xargs git checkout)"
 '
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 alias gpsu='git push --set-upstream origin $(git branch --show-current)'
 alias gpl='git pull'
 alias gst='git status --untracked-files=all'
