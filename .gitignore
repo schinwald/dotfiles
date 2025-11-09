@@ -22,4 +22,5 @@
 !.setup/**
 !.daemons/
 !.daemons/**
+!install.sh
 !README.md
