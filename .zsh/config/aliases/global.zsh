@@ -177,9 +177,9 @@ alias gsw='
     --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
 '
 alias gr='git reset'
-alias grs='git reset --soft'
-alias grm='git reset --mixed'
-alias grh='git reset --hard'
+alias grs='git reset --soft' # Move head, but current keep changes staged
+alias grm='git reset --mixed' # Move head, unstage current changes, but keep changes in working tree
+alias grh='git reset --hard' # Move head, unstage current chaanges, and discard all changes from working tree (fresh start)
 alias grst='git restore'
 alias grev='git revert'
 alias gb='
@@ -192,6 +192,10 @@ alias gl='
   git-graph --color=always |
   fzf --ansi --exact --header="Git commits"
 '
+alias grrm='git rm --cached' # Remove remote files from history
+alias gurm='git clean -f' # Remove file from working tree
+alias grb='git rebase -i'
+alias gcb='git checkout -b'
 
 # +--------------+ 
 # | TMUX ALIASES | 
