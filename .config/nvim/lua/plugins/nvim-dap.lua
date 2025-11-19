@@ -1,54 +1,39 @@
 return {
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"nvim-neotest/nvim-nio",
-			-- Debug adapters
-			"mfussenegger/nvim-dap-python",
+	"mfussenegger/nvim-dap",
+	lazy = true,
+	-- Copied from LazyVim/lua/lazyvim/plugins/extras/dap/core.lua and
+	-- modified.
+	keys = {
+		{
+			"<leader>db",
+			function()
+				require("dap").toggle_breakpoint()
+			end,
+			desc = "Toggle Breakpoint",
 		},
-		enabled = function()
-			---@diagnostic disable: undefined-field
-			if vim.g.vscode then
-				return false
-			end
 
-			return true
-		end,
-		config = function()
-			local dap = require("dap")
-			local ui = require("dapui")
-			ui.setup()
+		{
+			"<leader>dc",
+			function()
+				require("dap").continue()
+			end,
+			desc = "Continue",
+		},
 
-			require("dap-python").setup("python3")
+		{
+			"<leader>dC",
+			function()
+				require("dap").run_to_cursor()
+			end,
+			desc = "Run to Cursor",
+		},
 
-			vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-			vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
-
-			-- Eval var under cursor
-			vim.keymap.set("n", "<space>?", function()
-				ui.eval(nil, { enter = true })
-			end)
-
-			vim.keymap.set("n", "<F1>", dap.continue)
-			vim.keymap.set("n", "<F2>", dap.step_into)
-			vim.keymap.set("n", "<F3>", dap.step_over)
-			vim.keymap.set("n", "<F4>", dap.step_out)
-			vim.keymap.set("n", "<F5>", dap.step_back)
-			vim.keymap.set("n", "<F13>", dap.restart)
-
-			dap.listeners.before.attach.dapui_config = function()
-				ui.open()
-			end
-			dap.listeners.before.launch.dapui_config = function()
-				ui.open()
-			end
-			dap.listeners.before.event_terminated.dapui_config = function()
-				ui.close()
-			end
-			dap.listeners.before.event_exited.dapui_config = function()
-				ui.close()
-			end
-		end,
+		{
+			"<leader>dT",
+			function()
+				require("dap").terminate()
+			end,
+			desc = "Terminate",
+		},
 	},
 }
