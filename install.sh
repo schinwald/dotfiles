@@ -48,4 +48,12 @@ brew install kubernetes-cli
 brew install --cask redis-insight
 brew install --cask godot-mono
 
-# with aerospace, you have to launch it from gui
+# with aerospace, you have to launch it from gui (do you??)
+# gh is in installer section so it is duplicated
+#
+# kanata requires an install of https://karabiner-elements.pqrs.org/
+# follow instructions in docs
+# then exiting it in the tray icon
+#
+# raycast needs some manual setup
+# https://manual.raycast.com/hotkey
