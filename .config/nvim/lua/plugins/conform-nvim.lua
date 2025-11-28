@@ -45,12 +45,35 @@ return {
 			-- is found.
 			-- javascript = { { "prettierd", "prettier" } },
 			lua = { "stylua" },
-			javascript = { "biome-check" },
-			javascriptreact = { "biome-check" },
-			typescript = { "biome-check" },
-			typescriptreact = { "biome-check" },
+			javascript = { "biome-check", "prettier" },
+			javascriptreact = { "biome-check", "prettier" },
+			typescript = { "biome-check", "prettier" },
+			typescriptreact = { "biome-check", "prettier" },
 			python = { "ruff_fix", "ruff_format" },
 			markdown = { "prettierd" },
+		},
+		-- Conditional formatter configs
+		formatters = {
+			biome = {
+				condition = function(ctx)
+					return vim.fs.find({
+						"biome.json",
+						"biome.jsonc",
+					}, { upward = true, path = ctx.filename })[1]
+				end,
+			},
+			prettier = {
+				condition = function(ctx)
+					return vim.fs.find({
+						".prettierrc",
+						".prettierrc.json",
+						".prettierrc.js",
+						".prettierrc.cjs",
+						"prettier.config.js",
+						"prettier.config.cjs",
+					}, { upward = true, path = ctx.filename })[1]
+				end,
+			},
 		},
 	},
 }
