@@ -154,3 +154,11 @@ vim.cmd(f("highlight! link GitSignsChangeInline DiffTextTheirs"))
 vim.cmd(f("highlight NeotestIndent guibg=none guifg={colors.gray_300} gui=bold"))
 vim.cmd(f("highlight NeotestExpandMarker guibg=none guifg={colors.gray_300} gui=bold"))
 vim.cmd(f("highlight NeotestPassed guibg=none guifg={colors.bright_green_900} gui=bold"))
+
+-- Dap
+vim.cmd(f("highlight DapBreakpointText guibg=none guifg={colors.red_500}"))
+vim.cmd(f("highlight DapBreakpointLine guibg=none guifg=none"))
+vim.cmd(f("highlight DapBreakpointNum guibg=none guifg=none"))
+vim.cmd(f("highlight DapStoppedText guibg=none guifg={colors.gray_600}"))
+vim.cmd(f("highlight DapStoppedLine guibg={colors.red_100} guifg=none"))
+vim.cmd(f("highlight DapStoppedNum guibg={colors.red_100} guifg=none"))

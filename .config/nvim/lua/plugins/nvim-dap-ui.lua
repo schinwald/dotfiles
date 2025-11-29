@@ -7,13 +7,11 @@ return {
 			function()
 				require("dapui").toggle({})
 			end,
-			desc = "Dap UI",
+			desc = "[D]ap [U]I",
 		},
 	},
 	dependencies = {
 		"jay-babu/mason-nvim-dap.nvim",
-		"leoluz/nvim-dap-go",
-		"mfussenegger/nvim-dap-python",
 		"nvim-neotest/nvim-nio",
 		"theHamsta/nvim-dap-virtual-text",
 	},
