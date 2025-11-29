@@ -20,6 +20,7 @@ alias lt='ls --tree'
 alias rm='rm -rfi'
 alias cp='cp -ri'
 alias v=nvim_open
+alias vt=nvim_open_neotest
 alias pu=port_used
 alias envs=source_environment_file
 alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
@@ -292,6 +293,10 @@ nvim_open () {
   fi
 
   nvim -c "cd $DIRECTORY" $@
+}
+
+nvim_open_neotest () {
+  nvim -c "NeotestOpen" $@
 }
 
 diff () {
