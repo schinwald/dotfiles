@@ -99,6 +99,7 @@ vim.cmd(f("highlight SignColumn guibg=none"))
 vim.cmd(f("highlight VertSplit guibg=none"))
 vim.cmd(f("highlight StatusLine guibg=none"))
 vim.cmd(f("highlight StatusLineNC guibg=none"))
+vim.cmd(f("highlight WinSeparator guifg={colors.gray_300}"))
 vim.cmd(f("highlight Folded guibg={colors.white_50} guifg={colors.white_600}"))
 
 -- TODO: fix this
@@ -148,3 +149,8 @@ vim.cmd(f("highlight! link DiffviewDiffText DiffText"))
 vim.cmd(f("highlight! link GitSignsDeleteInline DiffTextOurs"))
 vim.cmd(f("highlight! link GitSignsAddInline DiffTextTheirs"))
 vim.cmd(f("highlight! link GitSignsChangeInline DiffTextTheirs"))
+
+-- Neotest
+vim.cmd(f("highlight NeotestIndent guibg=none guifg={colors.gray_300} gui=bold"))
+vim.cmd(f("highlight NeotestExpandMarker guibg=none guifg={colors.gray_300} gui=bold"))
+vim.cmd(f("highlight NeotestPassed guibg=none guifg={colors.bright_green_900} gui=bold"))
