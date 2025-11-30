@@ -28,6 +28,9 @@ vim.keymap.set("n", "<leader>z", "<cmd>Zoxide<cr>", { desc = "[Z]oxide" })
 -- View file's abstract syntax tree
 vim.keymap.set("n", "<leader>ast", "<cmd>InspectTree<cr>", { desc = "[A]bstract [s]yntax [t]ree" })
 
+-- Close the current tab
+vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "[T]ab [c]lose" })
+
 -- Use to toggle inline diagnostics
 vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
 	local enabled = vim.diagnostic.config().virtual_text
@@ -37,14 +40,3 @@ vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
 		vim.diagnostic.config({ virtual_text = true })
 	end
 end, {})
-
--- Quiting in different contexts
-vim.api.nvim_create_user_command("Quit", function()
-	if require("diffview.lib").get_current_view() then
-		vim.cmd("DiffviewClose")
-	else
-		vim.cmd("q")
-	end
-end, {})
-
-vim.cmd("cnoreabbrev q Quit")
