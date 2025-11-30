@@ -8,6 +8,9 @@ return {
 		"nvim-neotest/neotest-python",
 		"nvim-neotest/neotest-jest",
 	},
+	keys = {
+		{ "<leader>to", "<cmd>NeotestOpen<cr>", desc = "[T]est [o]pen" },
+	},
 	config = function()
 		require("neotest").setup({
 			adapters = {
