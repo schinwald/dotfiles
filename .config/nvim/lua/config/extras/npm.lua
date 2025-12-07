@@ -94,7 +94,7 @@ end
 ---@field find_package_directory fun(start_dir:string|nil):string|nil
 ---@field find_package_file fun():string|nil
 ---@field get_package_manager_name fun():PackageManager|nil
----@field get_script_names fun():string[]
+---@field get_script_names fun():table
 
 ---@type NpmHelpers
 vim.g.npm = {
