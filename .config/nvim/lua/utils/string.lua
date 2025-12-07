@@ -45,3 +45,47 @@ function string.interpolate(str)
 		end)
 	)
 end
+
+---@param value string
+local function encode_percent(value)
+	return (value:gsub("([^%w._-])", function(c)
+		return string.format("%%%02X", c:byte())
+	end))
+end
+
+---@param value string
+---@param type 'percent'
+function string.encode(value, type)
+	local match = {
+		percent = encode_percent,
+	}
+
+	local encoder = match[type]
+	if not encoder then
+		error("string.encode type not found")
+	end
+
+	return encoder(value)
+end
+
+---@param value string
+local function decode_percent(value)
+	return (value:gsub("%%(%x%x)", function(hex)
+		return string.char(tonumber(hex, 16))
+	end))
+end
+
+---@param value string
+---@param type 'percent'
+function string.decode(value, type)
+	local match = {
+		percent = decode_percent,
+	}
+
+	local decoder = match[type]
+	if not decoder then
+		error("string.decoder type not found")
+	end
+
+	return decoder(value)
+end
