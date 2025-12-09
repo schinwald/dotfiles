@@ -3,6 +3,7 @@
 !.hushlogin
 !.config/
 !.config/**
+.config/github-copilot
 .config/graphite
 .config/gh
 .config/configstore
