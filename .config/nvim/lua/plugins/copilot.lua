@@ -7,9 +7,8 @@ return {
 		suggestion = {
 			auto_trigger = true,
 			keymap = {
-				accept = false, -- handled by nvim-cmp / blink.cmp
-				next = "<M-]>",
-				prev = "<M-[>",
+				-- TODO: consider using blink or nvm-cmp for this?
+				accept = "<C-S-y>",
 			},
 		},
 		copilot_node_command = { "mise", "exec", "node@latest", "--", "node" },
