@@ -207,7 +207,7 @@ alias td='tmux detach'
 alias tc='tmux new-session -s'
 alias tk='tmux kill-server'
 alias tps='
-  tmuxinator list | tail -1 | tr -s " " | tr " " "\n" | xargs -n 1 tmuxinator start
+  tmuxinator list | tail -n +2 | tr -s " " | tr " " "\n" | xargs -n 1 tmuxinator start
 '
 
 # +-------------------------------+ 
