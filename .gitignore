@@ -3,6 +3,7 @@
 !.hushlogin
 !.config/
 !.config/**
+.config/flameshot
 .config/github-copilot
 .config/graphite
 .config/gh
