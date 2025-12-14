@@ -9,6 +9,11 @@ return {
 			return false
 		end
 
+		---@diagnostic disable: undefined-field
+		if vim.g.autocomplete_engine ~= "supermaven" then
+			return false
+		end
+
 		return true
 	end,
 	config = function()

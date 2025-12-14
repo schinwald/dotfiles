@@ -67,6 +67,8 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
+vim.g.autocomplete_engine = "copilot"
+
 vim.o.foldtext = "v:lua.custom_fold_text()"
 
 function _G.custom_fold_text()
