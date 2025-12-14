@@ -125,3 +125,15 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "FocusGained" }, {
+	callback = function()
+		vim.wo.cursorline = true
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
+	callback = function()
+		vim.wo.cursorline = false
+	end,
+})
