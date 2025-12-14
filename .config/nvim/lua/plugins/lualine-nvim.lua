@@ -50,6 +50,39 @@ return {
 					},
 				},
 			},
+			{
+				name = "dapui_watches",
+				filetypes = { "dapui_watches" },
+				sections = {
+					lualine_a = {
+						function()
+							return "Watches"
+						end,
+					},
+				},
+			},
+			{
+				name = "dapui_console",
+				filetypes = { "dapui_console" },
+				sections = {
+					lualine_a = {
+						function()
+							return "Console"
+						end,
+					},
+				},
+			},
+			{
+				name = "dap-repl",
+				filetypes = { "dap-repl" },
+				sections = {
+					lualine_a = {
+						function()
+							return "REPL"
+						end,
+					},
+				},
+			},
 			-- Diffview
 			{
 				name = "DiffviewFiles",

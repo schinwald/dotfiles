@@ -11,8 +11,19 @@ return {
 		},
 	},
 	dependencies = {
-		"jay-babu/mason-nvim-dap.nvim",
+		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
+		"jay-babu/mason-nvim-dap.nvim",
 		"theHamsta/nvim-dap-virtual-text",
 	},
+	config = function()
+		require("dapui").setup({
+			element_mappings = {
+				stacks = {
+					open = "<CR>",
+					expand = "o",
+				},
+			},
+		})
+	end,
 }

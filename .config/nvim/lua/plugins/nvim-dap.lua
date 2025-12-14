@@ -7,6 +7,14 @@ return {
 			{ text = "", texthl = "DapBreakpointText", linehl = "DapBreakpointLine", numhl = "DapBreakpointNum" }
 		)
 		vim.fn.sign_define(
+			"DapBreakpointCondition",
+			{ text = "", texthl = "DapBreakpointText", linehl = "DapBreakpointLine", numhl = "DapBreakpointNum" }
+		)
+		vim.fn.sign_define(
+			"DapBreakpointRejected",
+			{ text = "", texthl = "DapBreakpointText", linehl = "DapBreakpointLine", numhl = "DapBreakpointNum" }
+		)
+		vim.fn.sign_define(
 			"DapStopped",
 			{ text = "", texthl = "DapStoppedText", linehl = "DapStoppedLine", numhl = "DapStoppedNum" }
 		)

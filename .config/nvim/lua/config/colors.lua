@@ -162,3 +162,5 @@ vim.cmd(f("highlight DapBreakpointNum guibg=none guifg=none"))
 vim.cmd(f("highlight DapStoppedText guibg=none guifg={colors.gray_600}"))
 vim.cmd(f("highlight DapStoppedLine guibg={colors.red_100} guifg=none"))
 vim.cmd(f("highlight DapStoppedNum guibg={colors.red_100} guifg=none"))
+
+vim.cmd(f("highlight! link DapUIValue Comment"))
