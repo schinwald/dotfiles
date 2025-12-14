@@ -1,4 +1,4 @@
-# /Users/jamesschinwald/.config/tmuxinator/checkout.yml
+# ~/.config/tmuxinator/<project>.yml
 
 # name: checkout
 # root: ~/

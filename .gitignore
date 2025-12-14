@@ -3,6 +3,7 @@
 !.hushlogin
 !.config/
 !.config/**
+.config/tmuxinator/private/**
 .config/flameshot
 .config/github-copilot
 .config/graphite
