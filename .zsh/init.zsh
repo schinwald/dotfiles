@@ -31,6 +31,8 @@ for FILE in ~/.zsh/plugins/**/*.zsh; do
 done
 unset FILE
 
+source ~/.zsh/private.zsh
+
 # End profiler
 if [[ ZSH_PROFILE -eq 1 ]]; then
   zprof

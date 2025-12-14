@@ -20,6 +20,7 @@
 !.zsh/
 !.zsh/**
 .zsh/external/*.zsh
+.zsh/private.zsh
 !.zshrc
 !.setup/
 !.setup/**
