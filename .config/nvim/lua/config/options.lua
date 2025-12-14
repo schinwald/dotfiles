@@ -12,7 +12,7 @@ vim.opt.expandtab = true
 vim.opt.number = true
 
 -- Enables relative numbers (overlays when absolute is set)
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Enables the mouse
 vim.opt.mouse = "a"
