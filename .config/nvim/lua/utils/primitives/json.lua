@@ -1,4 +1,4 @@
-local json = {}
+json = {}
 
 ---@class JsonEncodeOptions
 ---@field sorted? boolean  -- if true, sort object keys lexicographically
@@ -90,5 +90,3 @@ function json.decode(str)
 	end
 	return result, nil
 end
-
-return json

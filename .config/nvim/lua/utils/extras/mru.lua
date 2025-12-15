@@ -7,7 +7,7 @@
 ---@field _store table<string, integer>   # key -> last used timestamp
 ---@field _store_path string
 ---@field _max_entries integer
-local MRU = {}
+MRU = {}
 MRU.__index = MRU
 
 local uv = vim.uv or vim.loop
@@ -229,5 +229,3 @@ function MRU:get_recent(n)
 
 	return out
 end
-
-return MRU

@@ -6,9 +6,6 @@ local conf = require("telescope.config").values
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
-local MRU = require("utils.mru")
-local json = require("utils.json")
-
 -- Remove wrap from Neotest output panel
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "neotest-output-panel",

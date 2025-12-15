@@ -21,10 +21,8 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("utils.vim")
-require("utils.string")
-require("utils.table")
-require("utils.bigfile")
+require("utils.primitives")
+require("utils.extras")
 
 -- Install plugins
 require("lazy").setup("plugins", {})
