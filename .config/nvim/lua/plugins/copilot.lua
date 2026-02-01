@@ -1,7 +1,10 @@
 return {
 	"zbirenbaum/copilot.lua",
-	build = ":Copilot auth",
+	dependencies = {
+		"copilotlsp-nvim/copilot-lsp",
+	},
 	event = "BufReadPost",
+	cmd = "Copilot",
 	enabled = function()
 		---@diagnostic disable: undefined-field
 		if vim.g.vscode then
@@ -23,7 +26,7 @@ return {
 				accept = "<C-S-y>",
 			},
 		},
-		copilot_node_command = { "mise", "exec", "node@latest", "--", "node" },
+		copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/22/bin/node",
 		panel = {
 			enabled = false,
 		},

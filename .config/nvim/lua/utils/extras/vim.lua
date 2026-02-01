@@ -53,3 +53,5 @@ function vim.fn.offset_to_row_column(text, offset)
 
 	return row, column
 end
+
+vim.g.autocomplete_engine = "copilot"
