@@ -110,11 +110,7 @@ alias dfsta='
   fzf --ansi --exact --header="Git stash apply" \
     --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME stash apply)"
 '
-alias dfsw='
-  df branch --color |
-  fzf --ansi --exact --header="Git branches" --query="$1" \
-    --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch)"
-'
+alias dfsw=dotfile_switch
 alias dfr='df reset'
 alias dfrs='df reset --soft'
 alias dfrm='df reset --mixed'
@@ -172,11 +168,7 @@ alias gsta='
   fzf --ansi --exact --header="Git stash apply" \
     --bind "enter:become(echo {} | grep -o \"stash@{\d\+}\" | xargs git stash apply)"
 '
-alias gsw='
-  git branch --color |
-  fzf --ansi --exact --header="Git branches" \
-    --bind "enter:become(echo {} | grep -o \"[^[:space:]]\+$\" | xargs git switch)"
-'
+alias gsw=git_switch
 alias gr='git reset'
 alias grs='git reset --soft' # Move head, but current keep changes staged
 alias grm='git reset --mixed' # Move head, unstage current changes, but keep changes in working tree
@@ -319,11 +311,29 @@ port_used () {
     fzf --ansi --exact --header="Port used" --header-lines=1
 }
 
+git_switch () {
+  selected=$(git branch --color |
+    fzf --ansi --exact --header="Git branches" --query="$1" --select-1)
+
+  if [[ -z $selected ]]; then
+    return 0
+  fi
+  echo "$selected" | grep -o "[^[:space:]]\+$" | xargs git switch
+}
+
+dotfiles_switch () {
+  selected=$(df branch --color |
+    fzf --ansi --exact --header="Git branches" --query="$1" --select-1)
+
+  if [[ -z $selected ]]; then
+    return 0
+  fi
+  echo "$selected" | grep -o "[^[:space:]]\+$" | xargs git --git-dir=$DOTFILES --work-tree=$HOME switch
+}
+
 git_branch_prune_all () {
-	git switch development &> /dev/null
-	git pull &> /dev/null
 	git fetch --prune &> /dev/null
-	git branch -vv | grep gone | sed -e s/\*//g | awk "{ print \$1 }" | xargs git branch -d 2> /dev/null
+	git branch -vv | grep gone | sed -e s/\*//g | awk "{ print \$1 }" | xargs git branch -D
 }
 
 gcp_switch_cluster () {
