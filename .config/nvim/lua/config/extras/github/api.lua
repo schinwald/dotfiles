@@ -45,6 +45,7 @@ return {
 				return
 			end
 			vim.fn.setreg("+", url)
+			vim.notify("Copied Github repository URL to clipboard", vim.log.levels.INFO)
 		end,
 		file = function()
 			local url, err = utils.url.file_url()
@@ -53,6 +54,7 @@ return {
 				return
 			end
 			vim.fn.setreg("+", url)
+			vim.notify("Copied Github file URL to clipboard", vim.log.levels.INFO)
 		end,
 		---@param commit_hash string
 		commit = function(commit_hash)
@@ -62,6 +64,7 @@ return {
 				return
 			end
 			vim.fn.setreg("+", url)
+			vim.notify("Copied Github commit URL to clipboard", vim.log.levels.INFO)
 		end,
 		---@param pull_request_id string
 		pull_request = function(pull_request_id)
@@ -71,6 +74,7 @@ return {
 				return
 			end
 			vim.fn.setreg("+", url)
+			vim.notify("Copied Github pull request URL to clipboard", vim.log.levels.INFO)
 		end,
 	},
 }
