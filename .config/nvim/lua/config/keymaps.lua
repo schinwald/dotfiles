@@ -31,6 +31,23 @@ vim.keymap.set("n", "<leader>ast", "<cmd>InspectTree<cr>", { desc = "[A]bstract 
 -- Close the current tab
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "[T]ab [c]lose" })
 
+-- Github actions
+local github = require("config.extras.github.api")
+vim.keymap.set({ "n", "v" }, "<leader>ghr", function()
+	github.copy.repository()
+end, { desc = "[G]it[h]ub copy [r]epository URL" })
+vim.keymap.set({ "n", "v" }, "<leader>ghf", function()
+	github.copy.file()
+end, { desc = "[G]it[h]ub copy [f]ile URL" })
+vim.keymap.set({ "n", "v" }, "<leader>ghc", function()
+	local commit_hash = vim.fn.expand("<cword>")
+	github.copy.commit(commit_hash)
+end, { desc = "[G]it[h]ub copy [c]ommit URL" })
+vim.keymap.set({ "n", "v" }, "<leader>ghpr", function()
+	local pull_request_id = vim.fn.expand("<cword>")
+	github.copy.pull_request(pull_request_id)
+end, { desc = "[G]it[h]ub copy [p]ull [r]equest URL" })
+
 -- Use to toggle inline diagnostics
 vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
 	local enabled = vim.diagnostic.config().virtual_text
