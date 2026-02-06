@@ -64,14 +64,15 @@ alias dcd='docker-compose down'
 # ===============
 # gh cli
 alias ghp='open https://github.com/schinwald'
-alias ghl='gh repo list | cut -f1 | fzf'
 alias ghb='ghl | xargs gh browse --repo'
-alias ghc='ghl | xargs gh repo clone'
-alias gha='gh repo create'
+alias ghrl='gh repo list | cut -f1 | fzf'
+alias ghrc='ghl | xargs gh repo clone'
+alias ghrc='gh repo create'
+alias ghpr='gh pr create --web'
 
 # dotfiles
 alias df='git --git-dir=$DOTFILES --work-tree=$HOME'
-alias dfd=dotfiles_diff
+alias dfdv=dotfiles_diffview
 alias dfa='
   git --git-dir=$DOTFILES --work-tree=$HOME status --short --untracked-files=all |
   fzf --ansi --exact --header="Git add" \
@@ -137,7 +138,7 @@ alias ga='
     --bind "shift-left:reload(git reset > /dev/null && git status --short --untracked-files=all)" \
     --bind "enter:become(git status --short --untracked-files=all)"
 '
-alias gd=diff
+alias gdv=git_diffview
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gc='git commit -v'
@@ -291,11 +292,11 @@ nvim_open_neotest () {
   nvim -c "NeotestOpen" $@
 }
 
-diff () {
+git_diffview () {
   nvim -c "DiffviewOpen" $@
 }
 
-dotfiles_diff () {
+dotfiles_diffview () {
   nvim --cmd "cd ~" -c "DiffviewOpen" $@
 }
 
