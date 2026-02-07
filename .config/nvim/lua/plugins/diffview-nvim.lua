@@ -39,19 +39,7 @@ return {
         end
 			end,
 			desc = "[G]it [F]ile [H]istory",
-		},
-		{
-			mode = "n",
-			"<leader>dc",
-			function()
-        if require("diffview.lib").get_current_view() then
-          vim.api.nvim_command("DiffviewClose")
-        else
-          vim.notify("No diff view is open", vim.log.levels.ERROR)
-        end
-			end,
-			desc = "[D]iffview [C]lose",
-		},
+		}
 	},
 	---@diagnostic disable: missing-fields
 	---@type DiffviewConfig
