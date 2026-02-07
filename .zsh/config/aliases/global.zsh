@@ -22,6 +22,7 @@ alias cp='cp -ri'
 alias v=nvim_open
 alias vt=nvim_open_neotest
 alias pu=port_used
+alias vnk=nvim_nuke
 alias envs=source_environment_file
 alias s='ssh $(cat ~/.ssh/config | grep ^Host | cut -d " " -f 2 | fzf)'
 alias colors='
@@ -363,6 +364,18 @@ docker_container_log () {
     return 0
   fi
   echo "$selected" | sed "s/  /@/g" | tr -s "@" | cut -d "@" -f 7 | xargs docker logs --follow
+}
+
+nvim_nuke () {
+  read -p "Are you sure you want to delete all Neovim data? (y/N) " confirmation
+  if [[ $confirmation == "y" || $confirmation == "Y" ]]; then
+    rm -rf ~/.local/share/nvim/lazy
+    rm -rf ~/.local/state/nvim/lazy-lock.json ~/.local/state/nvim/lazy
+    rm -rf ~/.local/share/nvim/site
+    echo "All Neovim data has been deleted."
+  else
+    echo "Operation cancelled."
+  fi
 }
 
 # Run tmuxinator scripts (must be at the end)
