@@ -48,6 +48,8 @@ brew install kubernetes-cli
 brew install --cask redis-insight
 brew install --cask godot-mono
 
+brew install anomalyco/tap/opencode
+
 brew install gnupg
 
 # with aerospace, you have to launch it from gui (do you??)
