@@ -17,8 +17,21 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	keys = {
-		{ "<leader>ao", "<cmd>AerialOpen<cr>", desc = "Toggle Aerial" },
-		{ "<leader>ac", "<cmd>AerialClose<cr>", desc = "Close Aerial" },
+		{
+			"<leader>ao",
+			function()
+				require("aerial").open()
+				vim.g.aerial_opened = true
+			end,
+			desc = "Toggle Aerial",
+		},
+		{
+			"<leader>ac",
+			function()
+				require("aerial").close()
+			end,
+			desc = "Close Aerial",
+		},
 	},
 	opts = {
 		autojump = true,

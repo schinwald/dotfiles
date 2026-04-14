@@ -13,22 +13,29 @@ return {
 
 		return true
 	end,
+	keys = {
+		-- Insert mode
+		{ "<C-g>s", "<Plug>(nvim-surround-insert)", mode = "i" },
+		{ "<C-g>S", "<Plug>(nvim-surround-insert-line)", mode = "i" },
+
+		-- Normal mode
+		{ "ys", "<Plug>(nvim-surround-normal)", mode = "n" },
+		{ "yss", "<Plug>(nvim-surround-normal-cur)", mode = "n" },
+		{ "yS", "<Plug>(nvim-surround-normal-line)", mode = "n" },
+		{ "ySS", "<Plug>(nvim-surround-normal-cur-line)", mode = "n" },
+
+		-- Visual mode
+		{ "gs", "<Plug>(nvim-surround-visual)", mode = "x" },
+		{ "gS", "<Plug>(nvim-surround-visual-line)", mode = "x" },
+
+		-- Delete
+		{ "ds", "<Plug>(nvim-surround-delete)", mode = "n" },
+
+		-- Change
+		{ "cs", "<Plug>(nvim-surround-change)", mode = "n" },
+		{ "cS", "<Plug>(nvim-surround-change-line)", mode = "n" },
+	},
 	config = function()
-		require("nvim-surround").setup({
-			-- Configuration here, or leave empty to use defaults
-			keymaps = {
-				insert = "<C-g>s",
-				insert_line = "<C-g>S",
-				normal = "ys",
-				normal_cur = "yss",
-				normal_line = "yS",
-				normal_cur_line = "ySS",
-				visual = "gs",
-				visual_line = "gS",
-				delete = "ds",
-				change = "cs",
-				change_line = "cS",
-			},
-		})
+		require("nvim-surround").setup()
 	end,
 }
