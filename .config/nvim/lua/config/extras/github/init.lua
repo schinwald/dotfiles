@@ -45,7 +45,10 @@ end, {
 	nargs = "+",
 	range = true,
 	desc = "Perform Github actions",
-	complete = function()
+	complete = function(ArgLead, CmdLine, CursorPos)
+		print("ArgLead:", ArgLead)
+		print("CmdLine:", CmdLine)
+		print("CursorPos:", CursorPos)
 		return { "open", "copy" }
 	end,
 })

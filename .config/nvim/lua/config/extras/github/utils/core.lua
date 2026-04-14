@@ -98,26 +98,18 @@ end
 
 -- Get the line fragment based on the current selection/position
 function M.get_line_fragment()
-	local start_line = vim.fn.getpos("v")[2]
-	local end_line = vim.fn.getcurpos()[2]
-
-	if start_line > end_line then
-		start_line, end_line = end_line, start_line
-	end
-
-	local has_line_fragment = start_line > 0 and end_line > 0
+	local position = vim.fn.get_visual_selection_range({
+		reset_to_normal_mode = true,
+	})
 
 	local line_fragment
-	if not has_line_fragment then
+	if not position then
 		line_fragment = ""
-	elseif start_line == end_line then
-		line_fragment = "#L" .. start_line
+	elseif position["start"].line == position["end"].line then
+		line_fragment = "#L" .. position["start"].line
 	else
-		line_fragment = "#L" .. start_line .. "-L" .. end_line
+		line_fragment = "#L" .. position["start"].line .. "-L" .. position["end"].line
 	end
-
-	-- Reset to normal mode
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n", true)
 
 	return line_fragment
 end

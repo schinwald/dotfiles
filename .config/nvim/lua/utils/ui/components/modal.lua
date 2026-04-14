@@ -14,7 +14,7 @@ local M = {}
 ---   padding: number | {top,right,bottom,left} (default 0)
 ---   title: string (optional)  -- simple title line inside content (not border-title)
 ---   lines: {string,...} initial content lines
-function M.View(opts)
+function M.view(opts)
 	opts = opts or {}
 	local pad = Padding.Normalize(opts.padding)
 	local border = opts.border or "rounded"

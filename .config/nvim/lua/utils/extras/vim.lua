@@ -119,4 +119,55 @@ function vim.fn.offset_to_row_column(text, offset)
 	return row, column
 end
 
-vim.g.autocomplete_engine = "copilot"
+---@class FilePosition
+---@field line number
+---@field column number
+
+---@class VisualSelectionFilePosition
+---@field start FilePosition
+---@field end FilePosition
+
+---@class GetPositionOpts
+---@field reset_to_normal_mode boolean|nil If true, resets to normal mode before getting position (so selection is from visual start to current cursor)
+
+---Gets the current visual selection position
+---@param opts GetPositionOpts|nil
+---@return VisualSelectionFilePosition|nil
+vim.fn.get_visual_selection_range = function(opts)
+	opts = opts or {}
+
+	local s, e
+	if opts.reset_to_normal_mode == true then
+		-- vim.cmd("normal! <Esc>")
+		s = vim.fn.getpos("'<")
+		e = vim.fn.getpos("'>")
+	else
+		s = vim.fn.getpos("v")
+		e = vim.fn.getcurpos()
+	end
+
+	local s_l, s_c = s[2], s[3]
+	local e_l, e_c = e[2], e[3]
+
+	if (s_l == 0 and s_c == 0) or (e_l == 0 and e_c == 0) then
+		return nil
+	end
+
+	-- normalize (start <= end)
+	if (s_l > e_l) or (s_l == e_l and s_c > e_c) then
+		s_l, e_l = e_l, s_l
+		s_c, e_c = e_c, s_c
+	end
+
+	local function build_position(line, column)
+		return { line = line, column = column }
+	end
+
+	return {
+		["start"] = build_position(s_l, s_c),
+		["end"] = build_position(e_l, e_c),
+	}
+end
+
+---@type "copilot" | "supermaven" | "none"
+vim.g.autocomplete_engine = "none"
