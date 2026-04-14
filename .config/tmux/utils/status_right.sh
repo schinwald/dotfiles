@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 GIT_BRANCH="  $(git branch --show-current) "
-K8S_CONTEXT=$(kubectl config current-context 2> /dev/null)
+K8S_CONTEXT=" $(kubectl config current-context 2> /dev/null) "
 
 ENTRIES=(
   "$GIT_BRANCH"
