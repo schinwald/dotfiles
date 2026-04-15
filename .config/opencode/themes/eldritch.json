@@ -1,0 +1,223 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "eld0": "#212337",
+    "eld1": "#292D4F",
+    "eld2": "#3B3F6B",
+    "eld3": "#7081D0",
+    "eld4": "#EBF7FF",
+    "eld5": "#D8E4FF",
+    "eld6": "#F1FC79",
+    "eld7": "#04D1F9",
+    "eld8": "#37F499",
+    "eld9": "#A48CF2",
+    "eld10": "#82AAFF",
+    "eld11": "#F16C75",
+    "eld12": "#F7C67F",
+    "eld13": "#F265B5",
+    "eld14": "#37F499",
+    "eld15": "#A48CF2"
+  },
+  "theme": {
+    "primary": {
+      "dark": "eld7",
+      "light": "eld10"
+    },
+    "secondary": {
+      "dark": "eld9",
+      "light": "eld9"
+    },
+    "accent": {
+      "dark": "eld8",
+      "light": "eld8"
+    },
+    "error": {
+      "dark": "eld11",
+      "light": "eld11"
+    },
+    "warning": {
+      "dark": "eld12",
+      "light": "eld12"
+    },
+    "success": {
+      "dark": "eld14",
+      "light": "eld14"
+    },
+    "info": {
+      "dark": "eld7",
+      "light": "eld10"
+    },
+    "text": {
+      "dark": "eld4",
+      "light": "eld0"
+    },
+    "textMuted": {
+      "dark": "eld3",
+      "light": "eld2"
+    },
+    "background": {
+      "dark": "eld0",
+      "light": "eld5"
+    },
+    "backgroundPanel": {
+      "dark": "eld1",
+      "light": "eld5"
+    },
+    "backgroundElement": {
+      "dark": "eld1",
+      "light": "eld4"
+    },
+    "border": {
+      "dark": "eld2",
+      "light": "eld3"
+    },
+    "borderActive": {
+      "dark": "eld3",
+      "light": "eld2"
+    },
+    "borderSubtle": {
+      "dark": "eld2",
+      "light": "eld3"
+    },
+    "diffAdded": {
+      "dark": "eld14",
+      "light": "eld14"
+    },
+    "diffRemoved": {
+      "dark": "eld11",
+      "light": "eld11"
+    },
+    "diffContext": {
+      "dark": "eld3",
+      "light": "eld3"
+    },
+    "diffHunkHeader": {
+      "dark": "eld3",
+      "light": "eld3"
+    },
+    "diffHighlightAdded": {
+      "dark": "eld14",
+      "light": "eld14"
+    },
+    "diffHighlightRemoved": {
+      "dark": "eld11",
+      "light": "eld11"
+    },
+    "diffAddedBg": {
+      "dark": "#243A3A",
+      "light": "#E6FFF5"
+    },
+    "diffRemovedBg": {
+      "dark": "#3A2430",
+      "light": "#FFE6EE"
+    },
+    "diffContextBg": {
+      "dark": "eld1",
+      "light": "eld5"
+    },
+    "diffLineNumber": {
+      "dark": "eld2",
+      "light": "eld4"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#243A3A",
+      "light": "#E6FFF5"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#3A2430",
+      "light": "#FFE6EE"
+    },
+    "markdownText": {
+      "dark": "eld4",
+      "light": "eld0"
+    },
+    "markdownHeading": {
+      "dark": "eld7",
+      "light": "eld10"
+    },
+    "markdownLink": {
+      "dark": "eld9",
+      "light": "eld9"
+    },
+    "markdownLinkText": {
+      "dark": "eld7",
+      "light": "eld7"
+    },
+    "markdownCode": {
+      "dark": "eld8",
+      "light": "eld8"
+    },
+    "markdownBlockQuote": {
+      "dark": "eld3",
+      "light": "eld3"
+    },
+    "markdownEmph": {
+      "dark": "eld12",
+      "light": "eld12"
+    },
+    "markdownStrong": {
+      "dark": "eld6",
+      "light": "eld6"
+    },
+    "markdownHorizontalRule": {
+      "dark": "eld3",
+      "light": "eld3"
+    },
+    "markdownListItem": {
+      "dark": "eld7",
+      "light": "eld10"
+    },
+    "markdownListEnumeration": {
+      "dark": "eld8",
+      "light": "eld8"
+    },
+    "markdownImage": {
+      "dark": "eld9",
+      "light": "eld9"
+    },
+    "markdownImageText": {
+      "dark": "eld8",
+      "light": "eld8"
+    },
+    "markdownCodeBlock": {
+      "dark": "eld4",
+      "light": "eld0"
+    },
+    "syntaxComment": {
+      "dark": "eld3",
+      "light": "eld3"
+    },
+    "syntaxKeyword": {
+      "dark": "eld9",
+      "light": "eld9"
+    },
+    "syntaxFunction": {
+      "dark": "eld7",
+      "light": "eld7"
+    },
+    "syntaxVariable": {
+      "dark": "eld8",
+      "light": "eld8"
+    },
+    "syntaxString": {
+      "dark": "eld14",
+      "light": "eld14"
+    },
+    "syntaxNumber": {
+      "dark": "eld13",
+      "light": "eld13"
+    },
+    "syntaxType": {
+      "dark": "eld7",
+      "light": "eld7"
+    },
+    "syntaxOperator": {
+      "dark": "eld9",
+      "light": "eld9"
+    },
+    "syntaxPunctuation": {
+      "dark": "eld4",
+      "light": "eld0"
+    }
+  }
+}
