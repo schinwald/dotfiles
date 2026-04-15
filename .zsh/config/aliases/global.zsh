@@ -30,7 +30,7 @@ alias colors='
   fzf --ansi --exact --header-lines=1 \
   --bind "enter:become(echo {} | sed \"s/ \{1,\}/@/g\" | cut -d \"@\" -f 3 | sed \"s/\x1b/\\\\\\\\u001b/g\" | tr -d \"\n\" | pbcopy)"
 '
-alias ips='echo "Public: $(curl -s ifconfig.me)"; echo "Local: $(ipconfsg getifaddr en0 2>/dev/null || hostname -I | awk "{print \$1}")"'
+alias ips='echo "Public: $(curl -s ifconfig.me)"; echo "Local: $(ipconfig getifaddr en0 2>/dev/null || hostname -I | awk "{print \$1}")"'
 
 copy () {
   pbcopy "$@"
