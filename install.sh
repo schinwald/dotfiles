@@ -51,6 +51,7 @@ brew install --cask godot-mono
 brew install anomalyco/tap/opencode
 
 brew install gnupg
+brew install localstack/tap/localstack-cli
 
 # with aerospace, you have to launch it from gui (do you??)
 # gh is in installer section so it is duplicated
